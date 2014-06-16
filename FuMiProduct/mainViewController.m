@@ -188,19 +188,19 @@
 {
     if (customSwitch == _systemBastion) {
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"离家设防中，请稍后……"];
+            [ProgressHUD show:@"离家设防中，请稍候……"];
             [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
         }
         
     }else if(customSwitch == _homeBastion){
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"在家设防中，请稍后……"];
+            [ProgressHUD show:@"在家设防中，请稍候……"];
             [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
         }
         
     }else if(customSwitch == _systemCancelBastion){
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"撤防中，请稍后……"];
+            [ProgressHUD show:@"撤防中，请稍候……"];
             [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
         }
         

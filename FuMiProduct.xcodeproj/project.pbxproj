@@ -117,6 +117,8 @@
 		649B0F80194737E500A7103E /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 649B0F7F194737E500A7103E /* down_dark.png */; };
 		64A0E609194E852200C72D78 /* alarmTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A0E608194E852200C72D78 /* alarmTimeCell.m */; };
 		64A0E60D194E855500C72D78 /* alarmVolumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A0E60C194E855500C72D78 /* alarmVolumeCell.m */; };
+		64A0E611194EE35000C72D78 /* customerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A0E610194EE35000C72D78 /* customerServiceViewController.m */; };
+		64A0E615194EE46200C72D78 /* videoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A0E614194EE46200C72D78 /* videoCallViewController.m */; };
 		64A68EAD19483D9600511173 /* hostLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A68EAC19483D9600511173 /* hostLogoModel.m */; };
 		64A68EB01948421A00511173 /* deviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A68EAF1948421A00511173 /* deviceTableViewCell.m */; };
 		64A8AE561949453E00E348B0 /* commonRespondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A8AE551949453E00E348B0 /* commonRespondModel.m */; };
@@ -318,6 +320,10 @@
 		64A0E608194E852200C72D78 /* alarmTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = alarmTimeCell.m; path = settingViewController/alarmTimeCell/alarmTimeCell.m; sourceTree = "<group>"; };
 		64A0E60B194E855500C72D78 /* alarmVolumeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alarmVolumeCell.h; path = settingViewController/alarmVolumeCell/alarmVolumeCell.h; sourceTree = "<group>"; };
 		64A0E60C194E855500C72D78 /* alarmVolumeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = alarmVolumeCell.m; path = settingViewController/alarmVolumeCell/alarmVolumeCell.m; sourceTree = "<group>"; };
+		64A0E60F194EE35000C72D78 /* customerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = customerServiceViewController.h; path = customerServiceViewController/customerServiceViewController.h; sourceTree = "<group>"; };
+		64A0E610194EE35000C72D78 /* customerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = customerServiceViewController.m; path = customerServiceViewController/customerServiceViewController.m; sourceTree = "<group>"; };
+		64A0E613194EE46200C72D78 /* videoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = videoCallViewController.h; path = videoCallViewController/videoCallViewController.h; sourceTree = "<group>"; };
+		64A0E614194EE46200C72D78 /* videoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = videoCallViewController.m; path = videoCallViewController/videoCallViewController.m; sourceTree = "<group>"; };
 		64A68EAB19483D9600511173 /* hostLogoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hostLogoModel.h; path = Model/hostLogoModel.h; sourceTree = "<group>"; };
 		64A68EAC19483D9600511173 /* hostLogoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = hostLogoModel.m; path = Model/hostLogoModel.m; sourceTree = "<group>"; };
 		64A68EAE1948421A00511173 /* deviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceTableViewCell.h; sourceTree = "<group>"; };
@@ -436,6 +442,8 @@
 		0F5A4292193B432600D9B932 /* FuMiProduct */ = {
 			isa = PBXGroup;
 			children = (
+				64A0E612194EE43B00C72D78 /* videoCallViewController */,
+				64A0E60E194EE31900C72D78 /* customerServiceViewController */,
 				64ACF327194B08D30049FEB3 /* messageViewController */,
 				64090E691945B60200A61333 /* MBProgressHUD */,
 				640434151941A13600CD1D18 /* Model */,
@@ -834,6 +842,24 @@
 			name = alarmVolumeCell;
 			sourceTree = "<group>";
 		};
+		64A0E60E194EE31900C72D78 /* customerServiceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64A0E60F194EE35000C72D78 /* customerServiceViewController.h */,
+				64A0E610194EE35000C72D78 /* customerServiceViewController.m */,
+			);
+			name = customerServiceViewController;
+			sourceTree = "<group>";
+		};
+		64A0E612194EE43B00C72D78 /* videoCallViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64A0E613194EE46200C72D78 /* videoCallViewController.h */,
+				64A0E614194EE46200C72D78 /* videoCallViewController.m */,
+			);
+			name = videoCallViewController;
+			sourceTree = "<group>";
+		};
 		64A8AE5719495BC300E348B0 /* rfidDeviceCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,9 +1107,11 @@
 				6450588B194009FE007BBA9B /* SKSTableView.m in Sources */,
 				64157FA7193D7124004972C5 /* ASICloudFilesContainerRequest.m in Sources */,
 				64A8AE691949A0F300E348B0 /* wirelessAlarmDeviceCell.m in Sources */,
+				64A0E611194EE35000C72D78 /* customerServiceViewController.m in Sources */,
 				0F5A4322193B975100D9B932 /* UIColor+hexStringToColor.m in Sources */,
 				64157FAF193D7124004972C5 /* ASIS3BucketObject.m in Sources */,
 				0F5A42C6193B434100D9B932 /* ICETutorialController.m in Sources */,
+				64A0E615194EE46200C72D78 /* videoCallViewController.m in Sources */,
 				64A8AE5A19495BEA00E348B0 /* rfidDeviceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

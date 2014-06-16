@@ -1,18 +1,18 @@
 //
-//  messageViewController.m
+//  customerServiceViewController.m
 //  FuMiProduct
 //
-//  Created by Monster on 14-6-13.
+//  Created by Monster on 14-6-16.
 //  Copyright (c) 2014年 Monster. All rights reserved.
 //
 
-#import "messageViewController.h"
+#import "customerServiceViewController.h"
 
-@interface messageViewController ()
+@interface customerServiceViewController ()
 
 @end
 
-@implementation messageViewController
+@implementation customerServiceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +46,7 @@
 }
 */
 
-- (IBAction)backBottonTouch:(UIButton *)sender {
+- (IBAction)backButtonTouch:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

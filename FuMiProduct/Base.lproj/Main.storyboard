@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Izr-Ov-dPY" kind="relationship" relationship="rootViewController" id="bQy-Xn-KVi"/>
+                        <segue destination="dZf-mt-XEv" kind="relationship" relationship="rootViewController" id="DBn-0B-Iho"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INu-HZ-jw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -493,10 +493,10 @@
             </objects>
             <point key="canvasLocation" x="182" y="-128"/>
         </scene>
-        <!--View Controller-->
+        <!--Video Call View Controller-->
         <scene sceneID="29A-Md-Xgp">
             <objects>
-                <viewController id="rcU-lX-zke" sceneMemberID="viewController">
+                <viewController id="rcU-lX-zke" customClass="videoCallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aDQ-ii-ZKj"/>
                         <viewControllerLayoutGuide type="bottom" id="iPb-Ts-Dye"/>
@@ -517,6 +517,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonTouch:" destination="rcU-lX-zke" eventType="touchUpInside" id="cQC-4v-FPJ"/>
                                     <action selector="backButtonTouched:" destination="PSS-TU-tJM" eventType="touchUpInside" id="0OI-ZT-pAX"/>
                                 </connections>
                             </button>
@@ -949,10 +950,10 @@
             </objects>
             <point key="canvasLocation" x="754" y="712"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer Service View Controller-->
         <scene sceneID="fb4-0P-IY7">
             <objects>
-                <viewController id="9DI-BD-Etm" sceneMemberID="viewController">
+                <viewController id="9DI-BD-Etm" customClass="customerServiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ufG-IV-Kbg"/>
                         <viewControllerLayoutGuide type="bottom" id="LHf-LE-nZ6"/>
@@ -973,7 +974,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="PSS-TU-tJM" eventType="touchUpInside" id="DvO-Gt-GX8"/>
+                                    <action selector="backButtonTouch:" destination="9DI-BD-Etm" eventType="touchUpInside" id="ieK-MV-hg0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="福米客服" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxX-us-Dtg">
@@ -1012,7 +1013,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="bQy-Xn-KVi"/>
-    </inferredMetricsTieBreakers>
 </document>
