@@ -1,0 +1,299 @@
+//
+//  settingViewController.m
+//  FuMiProduct
+//
+//  Created by 符鑫 on 14-6-2.
+//  Copyright (c) 2014年 Monster. All rights reserved.
+//
+
+#import "settingViewController.h"
+
+@interface settingViewController ()
+
+@end
+
+#define WIRELESSALARMACTION  @"wirelessAlarmAreaAction"
+#define ALARMPHONENUMACTION  @"alarmPhoneSetAction"
+
+@implementation settingViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    _nameArray = @[@"RFID设置",@"无线报警防区的定义",@"SOS报警电话号码设置",@"报警音量和时长设置",@"出入时延设置",@"独立防区时延设置",@"自带布防和撤防设置",@"用户反馈建议"];
+    
+    _tableView.SKSTableViewDelegate = self;
+    _tableView.shouldExpandOnlyOneCell = YES;
+    
+    //去掉TABLEVIEW 多余分割线
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [_tableView setTableFooterView:view];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:WIRELESSALARMACTION]) {
+        wirelessAlarmAreaSettingViewController* _ViewController = (wirelessAlarmAreaSettingViewController*)[segue destinationViewController];
+        _ViewController.alarmDeviceArray = _alarmDeviceArray;
+    }
+    
+}
+
+
+- (IBAction)backButtonTouched:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - TableView Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_nameArray count];
+}
+
+- (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        {
+            return [_rfidDeviceArray count];
+        }
+            break;
+            
+        case 1:
+        {
+            return 1;
+        }
+            break;
+            
+        case 2:
+        {
+            return 1;
+        }
+            break;
+            
+        case 3:
+        {
+            return 2;
+        }
+            break;
+            
+        case 4:
+        {
+            return 1;
+        }
+            break;
+            
+        case 5:
+        {
+            return 1;
+        }
+            break;
+            
+        case 6:
+        {
+            return 1;
+        }
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+}
+- (UITableViewCell *)tableView:(SKSTableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        _rfidDeviceCell =[tableView dequeueReusableCellWithIdentifier:@"deviceIdentifier"];
+        _rfidDeviceCell.rfidModel = [_rfidDeviceArray objectAtIndex:indexPath.subRow-1];
+        return _rfidDeviceCell;
+    }else if(indexPath.row == 2){
+        _alarmNumCell= [tableView dequeueReusableCellWithIdentifier:@"alarmNumIdentifier"];
+        return _alarmNumCell;
+    }else if(indexPath.row == 3){
+        if (indexPath.subRow == 1) {
+            _alarmVolumeCell = [tableView dequeueReusableCellWithIdentifier:@"alarmVolumeIdentifier"];
+            [_alarmVolumeCell setCellValue:[_hostPropertyModel.almvolume integerValue]];
+            return _alarmVolumeCell;
+        }else{
+            _alarmTimeCell = [tableView dequeueReusableCellWithIdentifier:@"alarmTimeIdentifier"];
+            [_alarmVolumeCell setCellValue:[_hostPropertyModel.alarmtime floatValue]/6000];
+            return _alarmTimeCell;
+        }
+    }else if(indexPath.row == 4||indexPath.row == 5) {
+        _deleyTimeCell = [tableView dequeueReusableCellWithIdentifier:@"delayTimeCellIdentifier"];
+        return _deleyTimeCell;
+    }else{
+        UITableViewCell* settingCell = [tableView dequeueReusableCellWithIdentifier:@"settingMainCell"];
+        settingCell.textLabel.text = [_nameArray objectAtIndex:indexPath.row];
+        settingCell.textLabel.textColor = [UIColor hexStringToColor:@"#00735A"];
+        return settingCell;
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForSubRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 58.0f;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SKSTableViewCell* settingCell = [tableView dequeueReusableCellWithIdentifier:@"settingMainCell"];
+    
+    settingCell.textLabel.text = [_nameArray objectAtIndex:indexPath.row];
+    settingCell.textLabel.textColor = [UIColor hexStringToColor:@"#00735A"];
+    settingCell.selectionStyle = UITableViewCellSelectionStyleGray;
+    switch (indexPath.row) {
+        case 0:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        case 1:
+        {
+            settingCell.isExpandable = NO;
+            settingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+            break;
+            
+        case 2:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        case 3:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        case 4:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        case 5:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        case 6:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
+            
+        default:
+            settingCell.isExpandable = NO;
+            break;
+    }
+    
+    return settingCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 1) {
+        [self performSegueWithIdentifier:WIRELESSALARMACTION sender:nil];
+    }else if(indexPath.row == 2){
+        //[self performSegueWithIdentifier:ALARMPHONENUMACTION sender:nil];
+    }
+}
+
+#pragma mark -alarmTimeCellDelegate
+
+-(void)updateTimeValue:(NSUInteger)value
+{
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:[NSString stringWithFormat:@"%d",value] retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+}
+#pragma mark -alarmVolumeCellDelegate
+
+-(void)updateVolumeValue:(NSUInteger)value
+{
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:[NSString stringWithFormat:@"%d",value] alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+}
+#pragma mark - deleyTimeCellDelegate
+-(void)updateOutInTimeValue:(NSUInteger)value
+{
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:[NSString stringWithFormat:@"%d",value] almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_OUTIN_DELAYTIME];
+}
+#pragma mark -http result
+
+-(void) GetErr:(ASIHTTPRequest *)request
+{
+    [ProgressHUD showError:@"修改报警设备名失败"];
+}
+-(void) GetResult:(ASIHTTPRequest *)request
+{
+    NSData *responseData = [request responseData];
+    NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"responseData is %@",pageSource);
+    NSError *error;
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    
+    NSLog(@"dic is %@",dictionary);
+    
+    if(dictionary!=nil){
+        _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
+        if ([_commRespondModel.respcode intValue] != respcode_Success) {
+            [ProgressHUD showError:_commRespondModel.respinfo];
+        }else{
+            if (request.tag == TAG_ALARMTIME){
+                [ProgressHUD showSuccess:@"报警时长设置成功！"];
+            }else if (request.tag == TAG_ALARMVOLUME){
+                [ProgressHUD showSuccess:@"报警音量设置成功！"];
+            }else if (request.tag == TAG_OUTIN_DELAYTIME){
+                [ProgressHUD showSuccess:@"出入时延设置成功！"];
+            }
+            
+        }
+    }else{
+        if (request.tag == TAG_ALARMTIME){
+            [ProgressHUD showError:@"报警时长设置失败，请重试！"];
+        }else if (request.tag == TAG_ALARMVOLUME){
+            [ProgressHUD showError:@"报警音量设置失败，请重试！"];
+        }else if (request.tag == TAG_OUTIN_DELAYTIME){
+            [ProgressHUD showError:@"出入时延设置失败，请重试！"];
+        }
+    }
+    
+}
+
+@end
