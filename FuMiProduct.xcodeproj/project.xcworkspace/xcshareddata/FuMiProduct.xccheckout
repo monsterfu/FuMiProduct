@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>56E9DA77-9728-4D3B-9D43-569D69100A9E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FuMiProduct</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3EE364C6-452C-4758-A3CC-C54C33E1B4F6</key>
+		<string>https://github.com/monsterfu/FuMiProduct.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FuMiProduct.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3EE364C6-452C-4758-A3CC-C54C33E1B4F6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/monsterfu/FuMiProduct.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3EE364C6-452C-4758-A3CC-C54C33E1B4F6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3EE364C6-452C-4758-A3CC-C54C33E1B4F6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FuMiProduct-0611-2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

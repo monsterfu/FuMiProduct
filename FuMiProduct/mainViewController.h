@@ -11,7 +11,7 @@
 #import "commonRespondModel.h"
 #import "hostPropertyModel.h"
 
-@interface mainViewController : UIViewController<CustomSwitchDelegate>
+@interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate>
 {
     NSString* _telephoneName;
     hostPropertyModel* _hostPropertyModel;

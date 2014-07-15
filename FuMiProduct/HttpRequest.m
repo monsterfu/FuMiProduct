@@ -11,11 +11,6 @@
 #import "AppDelegate.h"
 
 
-
-
-
-
-
 @implementation HttpRequest
 +(void)Request:(NSString*)url postdate:(NSString*)postdata tag:(int)tag delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
     

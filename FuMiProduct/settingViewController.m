@@ -14,6 +14,7 @@
 
 #define WIRELESSALARMACTION  @"wirelessAlarmAreaAction"
 #define ALARMPHONENUMACTION  @"alarmPhoneSetAction"
+#define FUMIKEFUACTION       @"fumiKFIAction"
 
 @implementation settingViewController
 
@@ -30,7 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _nameArray = @[@"RFID设置",@"无线报警防区的定义",@"SOS报警电话号码设置",@"报警音量和时长设置",@"出入时延设置",@"独立防区时延设置",@"自带布防和撤防设置",@"用户反馈建议"];
+    _nameArray = @[@"RFID设置",@"无线报警防区的定义",@"SOS报警电话号码设置",@"报警音量和时长设置",@"出入时延设置",@"独立防区时延设置",@"自动布防和撤防设置",@"撤防密码开关",@"用户反馈建议"];
     
     _tableView.SKSTableViewDelegate = self;
     _tableView.shouldExpandOnlyOneCell = YES;
@@ -96,7 +97,7 @@
             
         case 2:
         {
-            return 1;
+            return 5;
         }
             break;
             
@@ -237,7 +238,9 @@
         [self performSegueWithIdentifier:WIRELESSALARMACTION sender:nil];
     }else if(indexPath.row == 2){
         //[self performSegueWithIdentifier:ALARMPHONENUMACTION sender:nil];
-    }
+    }else if(indexPath.row == 8)
+        [self performSegueWithIdentifier:FUMIKEFUACTION sender:nil];
+    
 }
 
 #pragma mark -alarmTimeCellDelegate

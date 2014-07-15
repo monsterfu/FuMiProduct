@@ -133,6 +133,16 @@
 		64BBCDA8193D770600796A68 /* CustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCDA5193D770600796A68 /* CustomSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		64BBCDA9193D770600796A68 /* CustomSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCDA6193D770600796A68 /* CustomSwitch.xib */; };
 		64BBCDAC193D7F7D00796A68 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCDAB193D7F7D00796A68 /* HttpRequest.m */; };
+		64EF13C919752417003D9F71 /* PAPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF13C819752417003D9F71 /* PAPasscodeViewController.m */; };
+		64EF13D119752427003D9F71 /* papasscode_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13CB19752427003D9F71 /* papasscode_background.png */; };
+		64EF13D219752427003D9F71 /* papasscode_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13CC19752427003D9F71 /* papasscode_background@2x.png */; };
+		64EF13D319752427003D9F71 /* papasscode_failed_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13CD19752427003D9F71 /* papasscode_failed_bg.png */; };
+		64EF13D419752427003D9F71 /* papasscode_failed_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13CE19752427003D9F71 /* papasscode_failed_bg@2x.png */; };
+		64EF13D519752427003D9F71 /* papasscode_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13CF19752427003D9F71 /* papasscode_marker.png */; };
+		64EF13D619752427003D9F71 /* papasscode_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13D019752427003D9F71 /* papasscode_marker@2x.png */; };
+		64EF13D81975314B003D9F71 /* icon_07-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13D71975314B003D9F71 /* icon_07-40.png */; };
+		64EF13DA197531C6003D9F71 /* button_i1.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EF13D9197531C6003D9F71 /* button_i1.png */; };
+		64EF13DE19753DA3003D9F71 /* passwordSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF13DD19753DA3003D9F71 /* passwordSwitchCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +358,18 @@
 		64BBCDA7193D770600796A68 /* CustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSwitch.h; path = switch/CustomSwitch.h; sourceTree = "<group>"; };
 		64BBCDAA193D7F7D00796A68 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		64BBCDAB193D7F7D00796A68 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
+		64EF13C719752417003D9F71 /* PAPasscodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPasscodeViewController.h; sourceTree = "<group>"; };
+		64EF13C819752417003D9F71 /* PAPasscodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPasscodeViewController.m; sourceTree = "<group>"; };
+		64EF13CB19752427003D9F71 /* papasscode_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = papasscode_background.png; sourceTree = "<group>"; };
+		64EF13CC19752427003D9F71 /* papasscode_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "papasscode_background@2x.png"; sourceTree = "<group>"; };
+		64EF13CD19752427003D9F71 /* papasscode_failed_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = papasscode_failed_bg.png; sourceTree = "<group>"; };
+		64EF13CE19752427003D9F71 /* papasscode_failed_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "papasscode_failed_bg@2x.png"; sourceTree = "<group>"; };
+		64EF13CF19752427003D9F71 /* papasscode_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = papasscode_marker.png; sourceTree = "<group>"; };
+		64EF13D019752427003D9F71 /* papasscode_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "papasscode_marker@2x.png"; sourceTree = "<group>"; };
+		64EF13D71975314B003D9F71 /* icon_07-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_07-40.png"; sourceTree = "<group>"; };
+		64EF13D9197531C6003D9F71 /* button_i1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_i1.png; sourceTree = "<group>"; };
+		64EF13DC19753DA3003D9F71 /* passwordSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = passwordSwitchCell.h; path = settingViewController/passwordSwitchCell/passwordSwitchCell.h; sourceTree = "<group>"; };
+		64EF13DD19753DA3003D9F71 /* passwordSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = passwordSwitchCell.m; path = settingViewController/passwordSwitchCell/passwordSwitchCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +464,7 @@
 		0F5A4292193B432600D9B932 /* FuMiProduct */ = {
 			isa = PBXGroup;
 			children = (
+				64EF13C619752417003D9F71 /* PAPasscode */,
 				64A0E612194EE43B00C72D78 /* videoCallViewController */,
 				64A0E60E194EE31900C72D78 /* customerServiceViewController */,
 				64ACF327194B08D30049FEB3 /* messageViewController */,
@@ -517,6 +540,7 @@
 		0F5A42CC193B44BD00D9B932 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				64EF13CA19752427003D9F71 /* PaPasscode */,
 				0F5A430E193B8CB300D9B932 /* setting */,
 				0F5A42E9193B5D8B00D9B932 /* main */,
 				0F5A42DB193B49EA00D9B932 /* login */,
@@ -563,6 +587,7 @@
 		0F5A42E4193B4A7800D9B932 /* settingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				64EF13DB19753D6E003D9F71 /* passwordSwitchCell */,
 				64A0E60A194E853400C72D78 /* alarmVolumeCell */,
 				64A0E606194E850700C72D78 /* alarmTimeCell */,
 				64A8AE661949A0CC00E348B0 /* wirelessAlarmDeviceCell */,
@@ -580,6 +605,8 @@
 		0F5A42E9193B5D8B00D9B932 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				64EF13D9197531C6003D9F71 /* button_i1.png */,
+				64EF13D71975314B003D9F71 /* icon_07-40.png */,
 				0F5A430C193B895400D9B932 /* phone@2x.png */,
 				0F5A42EA193B5D8B00D9B932 /* back.png */,
 				0F5A42EB193B5D8B00D9B932 /* backhl.png */,
@@ -906,6 +933,37 @@
 			name = switchButton;
 			sourceTree = "<group>";
 		};
+		64EF13C619752417003D9F71 /* PAPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				64EF13C719752417003D9F71 /* PAPasscodeViewController.h */,
+				64EF13C819752417003D9F71 /* PAPasscodeViewController.m */,
+			);
+			path = PAPasscode;
+			sourceTree = "<group>";
+		};
+		64EF13CA19752427003D9F71 /* PaPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				64EF13CB19752427003D9F71 /* papasscode_background.png */,
+				64EF13CC19752427003D9F71 /* papasscode_background@2x.png */,
+				64EF13CD19752427003D9F71 /* papasscode_failed_bg.png */,
+				64EF13CE19752427003D9F71 /* papasscode_failed_bg@2x.png */,
+				64EF13CF19752427003D9F71 /* papasscode_marker.png */,
+				64EF13D019752427003D9F71 /* papasscode_marker@2x.png */,
+			);
+			path = PaPasscode;
+			sourceTree = "<group>";
+		};
+		64EF13DB19753D6E003D9F71 /* passwordSwitchCell */ = {
+			isa = PBXGroup;
+			children = (
+				64EF13DC19753DA3003D9F71 /* passwordSwitchCell.h */,
+				64EF13DD19753DA3003D9F71 /* passwordSwitchCell.m */,
+			);
+			name = passwordSwitchCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -954,7 +1012,7 @@
 				ORGANIZATIONNAME = Monster;
 				TargetAttributes = {
 					0F5A4288193B432600D9B932 = {
-						DevelopmentTeam = H6NR6KPK2Z;
+						DevelopmentTeam = 8C87933EV5;
 					};
 					0F5A42A9193B432600D9B932 = {
 						TestTargetID = 0F5A4288193B432600D9B932;
@@ -992,6 +1050,7 @@
 				0F5A430D193B895400D9B932 /* phone@2x.png in Resources */,
 				0F5A4305193B5D8B00D9B932 /* message.png in Resources */,
 				0F5A42CB193B43A700D9B932 /* ICETutorialController_iPhone.xib in Resources */,
+				64EF13D419752427003D9F71 /* papasscode_failed_bg@2x.png in Resources */,
 				64090E701945BED800A61333 /* ProgressHUD.bundle in Resources */,
 				0F5A42A5193B432600D9B932 /* Images.xcassets in Resources */,
 				0F5A4306193B5D8B00D9B932 /* off.png in Resources */,
@@ -1000,19 +1059,25 @@
 				64A8AE5E19496BC100E348B0 /* expanded.png in Resources */,
 				0F5A42D1193B44BD00D9B932 /* firstUse2.png in Resources */,
 				649B0F80194737E500A7103E /* down_dark.png in Resources */,
+				64EF13D119752427003D9F71 /* papasscode_background.png in Resources */,
 				0F5A42D0193B44BD00D9B932 /* firstUse1.png in Resources */,
 				0F5A4300193B5D8B00D9B932 /* homeMidSmall.png in Resources */,
+				64EF13D319752427003D9F71 /* papasscode_failed_bg.png in Resources */,
 				0F5A42DA193B465000D9B932 /* button-background@2x.png in Resources */,
 				0F5A42FE193B5D8B00D9B932 /* chefangSmall.png in Resources */,
 				0F5A430A193B5D8B00D9B932 /* settinghl.png in Resources */,
 				0F5A42FD193B5D8B00D9B932 /* chefangMid.png in Resources */,
 				0F5A4302193B5D8B00D9B932 /* kefu.png in Resources */,
+				64EF13DA197531C6003D9F71 /* button_i1.png in Resources */,
+				64EF13D219752427003D9F71 /* papasscode_background@2x.png in Resources */,
 				0F5A4301193B5D8B00D9B932 /* homeSmall.png in Resources */,
 				0F5A42CA193B43A700D9B932 /* ICETutorialController_iPad.xib in Resources */,
 				0F5A4297193B432600D9B932 /* InfoPlist.strings in Resources */,
 				0F5A430B193B5D8B00D9B932 /* warning.png in Resources */,
 				0F5A4317193B8CB300D9B932 /* ios无线报警防区定义2副本坐标及色彩.png in Resources */,
 				0F5A4304193B5D8B00D9B932 /* mainBg.png in Resources */,
+				64EF13D519752427003D9F71 /* papasscode_marker.png in Resources */,
+				64EF13D81975314B003D9F71 /* icon_07-40.png in Resources */,
 				0F5A4315193B8CB300D9B932 /* homeIcon.png in Resources */,
 				0F5A4314193B8CB300D9B932 /* 24.png in Resources */,
 				64157FAC193D7124004972C5 /* README-GHUnit in Resources */,
@@ -1029,6 +1094,7 @@
 				0F5A4307193B5D8B00D9B932 /* on.png in Resources */,
 				0F5A42E0193B49EA00D9B932 /* login.png in Resources */,
 				64A8AE5D19496BC100E348B0 /* expandable.png in Resources */,
+				64EF13D619752427003D9F71 /* papasscode_marker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1129,7 @@
 				640434271941A5C300CD1D18 /* alarmMessageCellModel.m in Sources */,
 				6404341B1941A36F00CD1D18 /* alarmTelephoneModel.m in Sources */,
 				0F5A431E193B937100D9B932 /* settingViewController.m in Sources */,
+				64EF13DE19753DA3003D9F71 /* passwordSwitchCell.m in Sources */,
 				0F5A42E7193B4B0B00D9B932 /* loginViewController.m in Sources */,
 				0F5A42C7193B434100D9B932 /* ICETutorialPage.m in Sources */,
 				64A8AE561949453E00E348B0 /* commonRespondModel.m in Sources */,
@@ -1078,6 +1145,7 @@
 				64A8AE6519498C7E00E348B0 /* alarmNumCell.m in Sources */,
 				0F3CE43C19475DA8009D2B8D /* synDeviceViewController.m in Sources */,
 				64157FA3193D7124004972C5 /* ASINetworkQueue.m in Sources */,
+				64EF13C919752417003D9F71 /* PAPasscodeViewController.m in Sources */,
 				64157FA6193D7124004972C5 /* ASICloudFilesContainer.m in Sources */,
 				64A8AE611949732600E348B0 /* NSString+userName.m in Sources */,
 				0F5A431B193B934600D9B932 /* mainViewController.m in Sources */,
@@ -1254,7 +1322,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B015EE7D-24F8-4869-B8FB-5DAFA0C3E46B";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1265,8 +1333,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xin fu (MC3BQTMFTZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xin fu (MC3BQTMFTZ)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Smit (HK) Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Smit (HK) Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FuMiProduct/FuMiProduct-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1282,7 +1350,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B015EE7D-24F8-4869-B8FB-5DAFA0C3E46B";
+				PROVISIONING_PROFILE = "A38114EF-FFD7-473B-8448-3CF706A68E69";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

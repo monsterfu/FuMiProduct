@@ -24,6 +24,8 @@
 #import "ProgressHUD.h"
 #import "commonRespondModel.h"
 #import "NSString+userName.h"
+#import "PAPasscodeViewController.h"
+
 
 #define DEVICE_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define DEVICE_HEIGHT  [UIScreen mainScreen].bounds.size.height

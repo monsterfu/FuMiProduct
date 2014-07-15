@@ -200,8 +200,12 @@
         
     }else if(customSwitch == _systemCancelBastion){
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"撤防中，请稍候……"];
-            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+            
+            PAPasscodeViewController *passcodeViewController = [[PAPasscodeViewController alloc] initForAction:PasscodeActionEnter];
+            passcodeViewController.delegate = self;
+            passcodeViewController.passcode = @"1234";
+            passcodeViewController.simple = CustomSwitchStatusOn;
+            [self presentViewController:passcodeViewController animated:YES completion:nil];
         }
         
     }
@@ -230,5 +234,18 @@
 
 - (IBAction)customerServiceTouched:(UIButton *)sender {
 }
+#pragma mark - PAPasscodeViewControllerDelegate
 
+- (void)PAPasscodeViewControllerDidCancel:(PAPasscodeViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)PAPasscodeViewControllerDidEnterPasscode:(PAPasscodeViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:^() {
+        
+        [ProgressHUD show:@"撤防中，请稍候……"];
+        [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+        
+    }];
+}
 @end

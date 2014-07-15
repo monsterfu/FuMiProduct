@@ -11,4 +11,8 @@
 @interface customerServiceViewController : UIViewController
 
 - (IBAction)backButtonTouch:(UIButton *)sender;
+
+
+- (IBAction)telePhoneButtonTouch:(UIButton *)sender;
+
 @end

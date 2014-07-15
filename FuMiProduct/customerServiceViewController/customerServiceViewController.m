@@ -49,4 +49,10 @@
 - (IBAction)backButtonTouch:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)telePhoneButtonTouch:(UIButton *)sender {
+    NSString *telUrl = [NSString stringWithFormat:@"telprompt:%@",@"40000203332"];
+    NSURL *url = [[NSURL alloc] initWithString:telUrl];
+    [[UIApplication sharedApplication] openURL:url];
+}
 @end

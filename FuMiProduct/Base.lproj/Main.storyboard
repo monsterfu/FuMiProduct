@@ -436,7 +436,7 @@
                                 </state>
                                 <connections>
                                     <action selector="customerServiceTouched:" destination="PSS-TU-tJM" eventType="touchUpInside" id="eYj-rr-hQM"/>
-                                    <segue destination="9DI-BD-Etm" kind="modal" id="vFG-Ss-k0R"/>
+                                    <segue destination="9DI-BD-Etm" kind="modal" identifier="fumiKFIAction" id="vFG-Ss-k0R"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="视频通话" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG9-rd-0lV">
@@ -661,7 +661,7 @@
                                                         <action selector="timeSliderUpInside:" destination="ye4-qr-qhi" eventType="touchUpInside" id="xQT-y0-fFO"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="毫秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-Pl-YWy">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-Pl-YWy">
                                                     <rect key="frame" x="54" y="18" width="36" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -761,6 +761,31 @@
                                             <outlet property="slider" destination="SRO-fx-lSR" id="edP-4n-Bsz"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordSwitchIdentifier" rowHeight="53" id="t3R-IY-gUa" customClass="passwordSwitchCell">
+                                        <rect key="frame" x="0.0" y="374" width="320" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3R-IY-gUa" id="Aw0-eF-jqK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="撤防密码开关" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znl-Zn-cEH">
+                                                    <rect key="frame" x="20" y="15" width="183" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zm4-By-l8T" customClass="CustomSwitch">
+                                                    <rect key="frame" x="255" y="15" width="38" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="passwordOpenSwitch" destination="Zm4-By-l8T" id="vHi-Cp-XMg"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -771,11 +796,12 @@
                         <outlet property="tableView" destination="x8C-xn-A6H" id="ydI-5C-fYK"/>
                         <segue destination="wXg-ft-Ukm" kind="push" identifier="wirelessAlarmAreaAction" id="rqd-dI-jCU"/>
                         <segue destination="nXq-Vb-vyU" kind="modal" identifier="alarmPhoneSetAction" id="Xkr-jJ-MIA"/>
+                        <segue destination="9DI-BD-Etm" kind="modal" identifier="fumiKFIAction" id="10N-Rb-w2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7v-hx-aoo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="-747"/>
+            <point key="canvasLocation" x="764" y="-753"/>
         </scene>
         <!--Alarm Phone Num View Controller-->
         <scene sceneID="Cs9-oC-8fn">
@@ -984,20 +1010,38 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_07-40.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-I4-Qz5">
+                                <rect key="frame" x="85" y="143" width="150" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sb5-M3-8ZX">
+                                <rect key="frame" x="33" y="368" width="255" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="400-0020-3002" backgroundImage="button_i1.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="telePhoneButtonTouch:" destination="9DI-BD-Etm" eventType="touchUpInside" id="AZ1-wV-2eI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ2-b6-ogP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="664"/>
+            <point key="canvasLocation" x="1248" y="-403"/>
         </scene>
     </scenes>
     <resources>
         <image name="back.png" width="49" height="48"/>
+        <image name="button_i1.png" width="435" height="100"/>
         <image name="chefangMid.png" width="59" height="59"/>
         <image name="homeMidSmall.png" width="32" height="31"/>
         <image name="homeSmall.png" width="32" height="31"/>
+        <image name="icon_07-40.png" width="110" height="110"/>
         <image name="kefu.png" width="214" height="261"/>
         <image name="leaveHome.png" width="59" height="59"/>
         <image name="login.png" width="484" height="92"/>
@@ -1013,4 +1057,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="10N-Rb-w2V"/>
+    </inferredMetricsTieBreakers>
 </document>
