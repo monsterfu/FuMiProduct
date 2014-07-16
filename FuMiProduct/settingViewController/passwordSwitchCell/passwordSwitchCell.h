@@ -10,9 +10,14 @@
 #import "CustomSwitch.h"
 
 
+@protocol passwordSwitchCellDelegate <NSObject>
+
+-(void)openPassword:(BOOL)open;
+@end
+
 @interface passwordSwitchCell : UITableViewCell<CustomSwitchDelegate>
 
 @property (weak, nonatomic) IBOutlet CustomSwitch *passwordOpenSwitch;
-
--(void)setSwitchUI;
+@property (assign, nonatomic)id<passwordSwitchCellDelegate>delegate;
+-(void)setSwitchUI:(BOOL)open;
 @end

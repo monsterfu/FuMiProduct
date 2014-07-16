@@ -31,12 +31,16 @@
     // Configure the view for the selected state
 }
 
--(void)setSwitchUI
+-(void)setSwitchUI:(BOOL)open
 {
     _passwordOpenSwitch.arrange = CustomSwitchArrangeONLeftOFFRight;
     _passwordOpenSwitch.onImage = [UIImage imageNamed:@"on.png"];
     _passwordOpenSwitch.offImage = [UIImage imageNamed:@"off.png"];
-    _passwordOpenSwitch.status = CustomSwitchStatusOff;
+    if (open) {
+        _passwordOpenSwitch.status = CustomSwitchStatusOn;
+    }else{
+        _passwordOpenSwitch.status = CustomSwitchStatusOff;
+    }
     _passwordOpenSwitch.delegate = self;
 }
 
@@ -44,6 +48,13 @@
 #pragma mark - CustomSwitchDelegate
 -(void)customSwitch:(CustomSwitch*)customSwitch SetStatus:(CustomSwitchStatus)status
 {
-    
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(openPassword:)]) {
+        if (status == CustomSwitchStatusOn) {
+            [self.delegate openPassword:YES];
+        }else{
+            [self.delegate openPassword:NO];
+        }
+        
+    }
 }
 @end

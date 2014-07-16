@@ -15,6 +15,8 @@
 {
     NSString* _telephoneName;
     hostPropertyModel* _hostPropertyModel;
+    BOOL _enterPassWordGapIsDone;  //输入密码错误后的时间间隔是否已到
+    NSTimer* _enterPasswordTimer;
 }
 
 

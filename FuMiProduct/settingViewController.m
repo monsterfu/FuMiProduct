@@ -124,7 +124,11 @@
             return 1;
         }
             break;
-            
+        case 7:
+        {
+            return 1;
+        }
+            break;
         default:
             return 0;
             break;
@@ -155,6 +159,16 @@
         _deleyTimeCell = [tableView dequeueReusableCellWithIdentifier:@"delayTimeCellIdentifier"];
         _deleyTimeCell.delegate = self;
         return _deleyTimeCell;
+    }else if(indexPath.row == 6){
+        UITableViewCell* settingCell = [tableView dequeueReusableCellWithIdentifier:@"settingMainCell"];
+        settingCell.textLabel.text = @"暂未开通，后续版本升级中";
+        settingCell.textLabel.textColor = [UIColor hexStringToColor:@"#00735A"];
+        return settingCell;
+    }else if(indexPath.row ==7) {
+        _passwordSwitchCell = [tableView dequeueReusableCellWithIdentifier:@"passwordSwitchIdentifier"];
+        _passwordSwitchCell.delegate = self;
+        [_passwordSwitchCell setSwitchUI:[USER_DEFAULT boolForKey:CHEFANG_PASSWORD_OPEN]];
+        return _passwordSwitchCell;
     }else{
         UITableViewCell* settingCell = [tableView dequeueReusableCellWithIdentifier:@"settingMainCell"];
         settingCell.textLabel.text = [_nameArray objectAtIndex:indexPath.row];
@@ -218,7 +232,11 @@
             settingCell.isExpandable = YES;
         }
             break;
-            
+        case 7:
+        {
+            settingCell.isExpandable = YES;
+        }
+            break;
         default:
             settingCell.isExpandable = NO;
             break;
@@ -263,6 +281,14 @@
     [ProgressHUD show:@"修改出入时延中，请稍候"];
     [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:[NSString stringWithFormat:@"%d",value] almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_OUTIN_DELAYTIME];
 }
+#pragma mark - passwordSwitchCellDelegate
+-(void)openPassword:(BOOL)open
+{
+    [USER_DEFAULT removeObjectForKey:CHEFANG_PASSWORD_OPEN];
+    [USER_DEFAULT setBool:open forKey:CHEFANG_PASSWORD_OPEN];
+    [USER_DEFAULT synchronize];
+}
+
 #pragma mark -http result
 
 -(void) GetErr:(ASIHTTPRequest *)request

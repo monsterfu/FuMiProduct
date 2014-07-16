@@ -13,9 +13,10 @@
 #import "alarmNumCell.h"
 #import "alarmVolumeCell.h"
 #import "alarmTimeCell.h"
+#import "passwordSwitchCell.h"
 #import "wirelessAlarmAreaSettingViewController.h"
 
-@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate>
+@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate,passwordSwitchCellDelegate>
 {
     NSArray* _nameArray;
     deleyTimeCell* _deleyTimeCell;
@@ -23,7 +24,7 @@
     alarmNumCell* _alarmNumCell;
     alarmVolumeCell* _alarmVolumeCell;
     alarmTimeCell* _alarmTimeCell;
-    
+    passwordSwitchCell* _passwordSwitchCell;
     commonRespondModel* _commRespondModel;
 }
 @property (strong,nonatomic)hostPropertyModel* hostPropertyModel;

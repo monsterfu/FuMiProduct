@@ -50,8 +50,8 @@
                 break;
                 
             case PasscodeActionEnter:
-                self.title = NSLocalizedString(@"Enter Passcode", nil);
-                _enterPrompt = NSLocalizedString(@"Enter your passcode", nil);
+                self.title = NSLocalizedString(@"撤防密码", nil);
+                _enterPrompt = NSLocalizedString(@"请输入撤防密码", nil);
                 break;
                 
             case PasscodeActionChange:
@@ -70,15 +70,19 @@
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, NAVBAR_HEIGHT)];
+    
+    UIImageView* bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, view.bounds.size.width, view.bounds.size.height - 20)];
+    [bgImageView setImage:[UIImage imageNamed:@"settingBg.png"]];
+    [view addSubview:bgImageView];
+    
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20, view.bounds.size.width, NAVBAR_HEIGHT)];
     navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     navigationBar.items = @[self.navigationItem];
     [view addSubview:navigationBar];
     
-    contentView = [[UIView alloc] initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, view.bounds.size.width, view.bounds.size.height-NAVBAR_HEIGHT)];
+    contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 20+NAVBAR_HEIGHT, view.bounds.size.width, view.bounds.size.height-NAVBAR_HEIGHT-20)];
     contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    contentView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    contentView.backgroundColor = [UIColor clearColor];
     [view addSubview:contentView];
     
     CGFloat panelWidth = DIGIT_WIDTH*4+DIGIT_SPACING*3;
@@ -174,7 +178,7 @@
     [super viewDidLoad];
     
     if (_simple) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
     } else {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
     }
@@ -279,9 +283,11 @@
     failedImageView.hidden = NO;
     failedAttemptsLabel.hidden = NO;
     if (_failedAttempts == 1) {
-        failedAttemptsLabel.text = NSLocalizedString(@"1 Failed Passcode Attempt", nil);
-    } else {
-        failedAttemptsLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Failed Passcode Attempts", nil), _failedAttempts];
+        failedAttemptsLabel.text = NSLocalizedString(@"已输入密码错误1次，共三次机会", nil);
+    } else if (_failedAttempts == 2){
+        failedAttemptsLabel.text = [NSString stringWithFormat:NSLocalizedString(@"已输入密码错误%d次，共三次机会", nil), _failedAttempts];
+    }else{
+        
     }
     [failedAttemptsLabel sizeToFit];
     CGFloat bgWidth = failedAttemptsLabel.bounds.size.width + FAILED_MARGIN*2;

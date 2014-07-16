@@ -45,6 +45,8 @@
 #define RetPwdFlag_NoNeedPaswrd     @"00" //撤防不需要密码
 #define RetPwdFlag_NeedPaswrd       @"01" //撤防需要密码
 
+#define CHEFANG_PASSWORD_OPEN       @"chefang_password_open"//撤防密码开关
+
 //主机工作状态  12
 #define HostWorkSts_LJSF    @"01"       //离家设防(默认)
 #define HostWorkSts_ZJSF    @"02"       //在家设防

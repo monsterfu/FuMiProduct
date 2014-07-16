@@ -582,16 +582,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4zz-uT-9vj">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4zz-uT-9vj" id="wOR-gt-Ub8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deviceIdentifier" rowHeight="52" id="4nF-mH-Bn3" customClass="rfidDeviceCell">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="52"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nF-mH-Bn3" id="iQA-QT-NVx">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
@@ -620,7 +612,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmNumIdentifier" id="Fgh-Gt-6Cs" customClass="alarmNumCell">
-                                        <rect key="frame" x="0.0" y="162" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="118" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgh-Gt-6Cs" id="7I8-Ax-KDG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -646,7 +638,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="delayTimeCellIdentifier" rowHeight="56" id="ye4-qr-qhi" customClass="deleyTimeCell">
-                                        <rect key="frame" x="0.0" y="206" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="162" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ye4-qr-qhi" id="Kcg-8X-abZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -683,7 +675,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmVolumeIdentifier" rowHeight="56" id="OEK-df-Pcx" customClass="alarmVolumeCell">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="218" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OEK-df-Pcx" id="anV-hG-ul7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -719,7 +711,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTimeIdentifier" rowHeight="56" id="yhW-v6-VMO" customClass="alarmTimeCell">
-                                        <rect key="frame" x="0.0" y="318" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="274" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhW-v6-VMO" id="7c8-FV-EwJ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -762,7 +754,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordSwitchIdentifier" rowHeight="53" id="t3R-IY-gUa" customClass="passwordSwitchCell">
-                                        <rect key="frame" x="0.0" y="374" width="320" height="53"/>
+                                        <rect key="frame" x="0.0" y="330" width="320" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3R-IY-gUa" id="Aw0-eF-jqK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
@@ -1058,6 +1050,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="10N-Rb-w2V"/>
+        <segue reference="vFG-Ss-k0R"/>
     </inferredMetricsTieBreakers>
 </document>

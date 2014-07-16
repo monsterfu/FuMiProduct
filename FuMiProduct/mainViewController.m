@@ -57,6 +57,8 @@
         _hostPropertyModel = [_hostDeviceArray objectAtIndex:0];
         [self changeWorkStatus:_hostPropertyModel.workstatus];
     }
+    
+    _enterPassWordGapIsDone = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -201,11 +203,24 @@
     }else if(customSwitch == _systemCancelBastion){
         if (status == CustomSwitchStatusOn) {
             
-            PAPasscodeViewController *passcodeViewController = [[PAPasscodeViewController alloc] initForAction:PasscodeActionEnter];
-            passcodeViewController.delegate = self;
-            passcodeViewController.passcode = @"1234";
-            passcodeViewController.simple = CustomSwitchStatusOn;
-            [self presentViewController:passcodeViewController animated:YES completion:nil];
+            BOOL passwordOpen = [USER_DEFAULT boolForKey:CHEFANG_PASSWORD_OPEN];
+            if (passwordOpen) {
+                if (!_enterPassWordGapIsDone) {
+                    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您已连续输错撤防密码三次，请等待5分钟后再次输入" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [alertView show];
+                    _systemCancelBastion.status = CustomSwitchStatusOff;
+                    return;
+                }
+                PAPasscodeViewController *passcodeViewController = [[PAPasscodeViewController alloc] initForAction:PasscodeActionEnter];
+                passcodeViewController.delegate = self;
+                passcodeViewController.passcode = @"1234";
+                passcodeViewController.simple = CustomSwitchStatusOff;
+                [self presentViewController:passcodeViewController animated:YES completion:nil];
+            }else{
+                [ProgressHUD show:@"撤防中，请稍候……"];
+                [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+            }
+            
         }
         
     }
@@ -234,9 +249,15 @@
 
 - (IBAction)customerServiceTouched:(UIButton *)sender {
 }
+
+-(void)changeEnterPasswordSign
+{
+    _enterPassWordGapIsDone = YES;
+}
 #pragma mark - PAPasscodeViewControllerDelegate
 
 - (void)PAPasscodeViewControllerDidCancel:(PAPasscodeViewController *)controller {
+    _systemCancelBastion.status = CustomSwitchStatusOff;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -247,5 +268,19 @@
         [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
         
     }];
+}
+- (void)PAPasscodeViewController:(PAPasscodeViewController *)controller didFailToEnterPasscode:(NSInteger)attempts
+{
+    if (attempts  == 3) {
+        _systemCancelBastion.status = CustomSwitchStatusOff;
+        _enterPassWordGapIsDone = NO;
+        
+        _enterPasswordTimer = [NSTimer timerWithTimeInterval:120 target:self selector:@selector(changeEnterPasswordSign) userInfo:nil repeats:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您已连续输错撤防密码三次，请等待5分钟后再次输入" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    
 }
 @end
