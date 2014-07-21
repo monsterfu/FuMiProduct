@@ -115,6 +115,7 @@
 		hud = [[UIToolbar alloc] initWithFrame:CGRectZero];
 		hud.barTintColor = HUD_BACKGROUND_COLOR;
 		hud.translucent = YES;
+        hud.userInteractionEnabled = YES;
 		hud.layer.cornerRadius = 10;
 		hud.layer.masksToBounds = YES;
 		//-----------------------------------------------------------------------------------------------------------------------------------------
@@ -240,10 +241,9 @@
 		[UIView animateWithDuration:0.15 delay:0 options:options animations:^{
 			hud.transform = CGAffineTransformScale(hud.transform, 1/1.4, 1/1.4);
 			hud.alpha = 1;
-            window.userInteractionEnabled = NO;
 		}
 		completion:^(BOOL finished){
-            window.userInteractionEnabled = YES;
+            window.userInteractionEnabled = NO;
         }];
 	}
 }
@@ -262,6 +262,7 @@
 		}
 		completion:^(BOOL finished)
 		{
+            window.userInteractionEnabled = YES;
 			[self hudDestroy];
 			self.alpha = 0;
 		}];

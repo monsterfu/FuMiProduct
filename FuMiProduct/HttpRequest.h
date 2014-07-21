@@ -16,7 +16,6 @@
 
 
 
-
 +(void)Request:(NSString*)url postdate:(NSString*)postdata tag:(int)tag delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 +(void)Request:(NSString*)url postdate:(NSString*)postdata tag:(int)tag request:(ASIHTTPRequest *)request delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
@@ -33,6 +32,9 @@
 +(void)wirelessAlarmDeviceSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno wirelessAlarmDevice:(wirelessAlarmDeviceModel*)wirelessAlarmDevice delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
 +(void)warningSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmMessage:(alarmMessageModel*)alarmMessage delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
+
+//报警日志
++(void)warningNoteRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno begintime:(NSString*)begintime endtime:(NSString*)endtime delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 @end
 
 

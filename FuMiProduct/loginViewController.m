@@ -76,8 +76,8 @@
         [alertView show];
         return;
     }
-    if (_passWordTextField.text.length < 6) {
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"提醒" message:@"密码不能少于6位" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    if (_passWordTextField.text.length < 4) {
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"提醒" message:@"密码不能少于4位" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
         return;
     }
@@ -125,7 +125,6 @@
     }else{
         [ProgressHUD showError:@"登陆失败，请检查网络连接是否正常!"];
     }
-    
     
 }
 -(void) GetsynchrDataResult:(ASIHTTPRequest *)request

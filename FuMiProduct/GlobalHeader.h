@@ -24,6 +24,7 @@
 #import "ProgressHUD.h"
 #import "commonRespondModel.h"
 #import "NSString+userName.h"
+#import "NSString+dateFormater.h"
 #import "PAPasscodeViewController.h"
 
 
@@ -114,4 +115,7 @@ typedef enum _respcodeEnum {
 #define TAG_ALARMTIME     4001
 #define TAG_ALARMVOLUME   4002
 #define TAG_OUTIN_DELAYTIME    4003
+
+
+#define TAG_WARNINGNOTE      (4008)
 #endif

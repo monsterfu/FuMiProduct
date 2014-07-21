@@ -72,6 +72,8 @@
 		640434211941A50500CD1D18 /* rfidDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640434201941A50500CD1D18 /* rfidDeviceModel.m */; };
 		640434241941A55400CD1D18 /* alarmMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640434231941A55400CD1D18 /* alarmMessageModel.m */; };
 		640434271941A5C300CD1D18 /* alarmMessageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640434261941A5C300CD1D18 /* alarmMessageCellModel.m */; };
+		640851DF197CB86C004409F1 /* warningNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640851DE197CB86C004409F1 /* warningNoteViewController.m */; };
+		640851E2197CC3EC004409F1 /* NSString+dateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 640851E1197CC3EC004409F1 /* NSString+dateFormater.m */; };
 		64090E701945BED800A61333 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64090E6D1945BED800A61333 /* ProgressHUD.bundle */; };
 		64090E711945BED800A61333 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64090E6F1945BED800A61333 /* ProgressHUD.m */; };
 		640E7D0C193F18DA0082EFF2 /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640E7D0A193F18DA0082EFF2 /* BPushConfig.plist */; };
@@ -244,6 +246,10 @@
 		640434231941A55400CD1D18 /* alarmMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = alarmMessageModel.m; path = Model/alarmMessageModel.m; sourceTree = "<group>"; };
 		640434251941A5C300CD1D18 /* alarmMessageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alarmMessageCellModel.h; path = Model/alarmMessageCellModel.h; sourceTree = "<group>"; };
 		640434261941A5C300CD1D18 /* alarmMessageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = alarmMessageCellModel.m; path = Model/alarmMessageCellModel.m; sourceTree = "<group>"; };
+		640851DD197CB86C004409F1 /* warningNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = warningNoteViewController.h; path = warningNoteViewController/warningNoteViewController.h; sourceTree = "<group>"; };
+		640851DE197CB86C004409F1 /* warningNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = warningNoteViewController.m; path = warningNoteViewController/warningNoteViewController.m; sourceTree = "<group>"; };
+		640851E0197CC3EC004409F1 /* NSString+dateFormater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dateFormater.h"; sourceTree = "<group>"; };
+		640851E1197CC3EC004409F1 /* NSString+dateFormater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dateFormater.m"; sourceTree = "<group>"; };
 		64090E6D1945BED800A61333 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = MBProgressHUD/ProgressHUD.bundle; sourceTree = "<group>"; };
 		64090E6E1945BED800A61333 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = MBProgressHUD/ProgressHUD.h; sourceTree = "<group>"; };
 		64090E6F1945BED800A61333 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = MBProgressHUD/ProgressHUD.m; sourceTree = "<group>"; };
@@ -464,6 +470,7 @@
 		0F5A4292193B432600D9B932 /* FuMiProduct */ = {
 			isa = PBXGroup;
 			children = (
+				640851DC197CB7F3004409F1 /* warningNoteViewController */,
 				64EF13C619752417003D9F71 /* PAPasscode */,
 				64A0E612194EE43B00C72D78 /* videoCallViewController */,
 				64A0E60E194EE31900C72D78 /* customerServiceViewController */,
@@ -651,6 +658,8 @@
 				640E7D24193F2D570082EFF2 /* NSString+random.m */,
 				64A8AE5F1949732600E348B0 /* NSString+userName.h */,
 				64A8AE601949732600E348B0 /* NSString+userName.m */,
+				640851E0197CC3EC004409F1 /* NSString+dateFormater.h */,
+				640851E1197CC3EC004409F1 /* NSString+dateFormater.m */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -691,6 +700,15 @@
 				64A8AE551949453E00E348B0 /* commonRespondModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		640851DC197CB7F3004409F1 /* warningNoteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				640851DD197CB86C004409F1 /* warningNoteViewController.h */,
+				640851DE197CB86C004409F1 /* warningNoteViewController.m */,
+			);
+			name = warningNoteViewController;
 			sourceTree = "<group>";
 		};
 		64090E691945B60200A61333 /* MBProgressHUD */ = {
@@ -1156,6 +1174,7 @@
 				64090E711945BED800A61333 /* ProgressHUD.m in Sources */,
 				64157FA8193D7124004972C5 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				0F3CE43F194763BF009D2B8D /* deviceListModel.m in Sources */,
+				640851E2197CC3EC004409F1 /* NSString+dateFormater.m in Sources */,
 				64157F9E193D7124004972C5 /* ASIDataDecompressor.m in Sources */,
 				64BBCDA8193D770600796A68 /* CustomSwitch.m in Sources */,
 				64157FA2193D7124004972C5 /* ASIInputStream.m in Sources */,
@@ -1169,6 +1188,7 @@
 				64A68EB01948421A00511173 /* deviceTableViewCell.m in Sources */,
 				64157FAA193D7124004972C5 /* ASICloudFilesObjectRequest.m in Sources */,
 				64BBCDAC193D7F7D00796A68 /* HttpRequest.m in Sources */,
+				640851DF197CB86C004409F1 /* warningNoteViewController.m in Sources */,
 				64157FB0193D7124004972C5 /* ASIS3BucketRequest.m in Sources */,
 				64157FA1193D7124004972C5 /* ASIHTTPRequest.m in Sources */,
 				64157FA9193D7124004972C5 /* ASICloudFilesObject.m in Sources */,

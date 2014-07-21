@@ -104,6 +104,11 @@
     NSString* message = [NSString stringWithFormat:@"[{\"type\":\"%@\",\"deveceid\":\"%@\",\"name\":\"%@\"}]",alarmMessage.type,alarmMessage.deveceid,alarmMessage.name];
     [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4007\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"alarmmessage\":%@}",mobile,host,seqno,message] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
 }
+
++(void)warningNoteRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno begintime:(NSString*)begintime endtime:(NSString*)endtime delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
+    
+    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"0016\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"begintime\":%@,\"endtime\":%@}",mobile,host,seqno,begintime,endtime] tag:TAG_WARNINGNOTE delegate:delegate finishSel:finishSel failSel:failSel];
+}
 @end
 
 

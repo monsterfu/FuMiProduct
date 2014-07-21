@@ -178,6 +178,22 @@
             [ProgressHUD showError:@"撤防失败，请重试！"];
             _systemCancelBastion.status = CustomSwitchStatusOff;
         }
+    }else if (request.tag == TAG_WARNINGNOTE){
+        if(dictionary!=nil){
+            _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
+            if ([_commRespondModel.respcode intValue]!= respcode_Success) {
+                [ProgressHUD showError:_commRespondModel.respinfo];
+                _systemCancelBastion.status = CustomSwitchStatusOff;
+            }else{
+                [ProgressHUD showSuccess:@"撤防成功！"];
+                _systemBastion.status = CustomSwitchStatusOff;
+                _homeBastion.status = CustomSwitchStatusOff;
+                [self changeWorkStatus:HostWorkSts_CF];
+            }
+        }else{
+            [ProgressHUD showError:@"撤防失败，请重试！"];
+            _systemCancelBastion.status = CustomSwitchStatusOff;
+        }
     }
     
     
@@ -239,6 +255,11 @@
 }
 
 - (IBAction)warningLogTouched:(UIButton *)sender {
+    [ProgressHUD show:@"获取报警日志中，请稍候……"];
+    NSDate* earlyDate = [NSDate dateWithTimeIntervalSinceNow:365*24*60*60];
+    NSDate* todatDate = [NSDate date];
+    [HttpRequest warningNoteRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] begintime:[NSString dateFormater:earlyDate] endtime:[NSString dateFormater:todatDate] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+//    [self performSegueWithIdentifier:@"warningNoteIdentifier" sender:nil];
 }
 
 - (IBAction)videoTelephoneTouched:(UIButton *)sender {
