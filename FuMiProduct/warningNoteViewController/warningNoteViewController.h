@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "warningNoteModel.h"
+#import "warningNoteDeviceInfoCell.h"
+#import "warningNoteInfoCell.h"
 
-@interface warningNoteViewController : UIViewController
+@interface warningNoteViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    warningNoteDeviceInfoCell* _deviceInfoCell;
+    warningNoteInfoCell*_infoCell;
+}
+
+@property(nonatomic, strong)warningNoteModel* warningNote;
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

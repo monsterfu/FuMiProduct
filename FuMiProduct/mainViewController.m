@@ -16,7 +16,7 @@
 @end
 
 #define SETTINGACTION  @"settingAction"
-
+#define WARNINGNOTE_Action  @"warningNoteIdentifier"
 @implementation mainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -102,6 +102,9 @@
         _settingViewController.rfidDeviceArray = _rfidDeviceArray;
         _settingViewController.alarmDeviceArray = _alarmDeviceArray;
         _settingViewController.hostPropertyModel = _hostPropertyModel;
+    }else if([segue.identifier isEqualToString:WARNINGNOTE_Action]){
+        warningNoteViewController* _warningNoteViewController = (warningNoteViewController*)[segue destinationViewController];
+        _warningNoteViewController.warningNote = _warningNoteModel;
     }
     
 }
@@ -180,19 +183,10 @@
         }
     }else if (request.tag == TAG_WARNINGNOTE){
         if(dictionary!=nil){
-            _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
-            if ([_commRespondModel.respcode intValue]!= respcode_Success) {
-                [ProgressHUD showError:_commRespondModel.respinfo];
-                _systemCancelBastion.status = CustomSwitchStatusOff;
-            }else{
-                [ProgressHUD showSuccess:@"撤防成功！"];
-                _systemBastion.status = CustomSwitchStatusOff;
-                _homeBastion.status = CustomSwitchStatusOff;
-                [self changeWorkStatus:HostWorkSts_CF];
-            }
+            _warningNoteModel = [[warningNoteModel alloc]initWithDictionary:dictionary];
+            [self performSegueWithIdentifier:@"warningNoteIdentifier" sender:nil];
         }else{
-            [ProgressHUD showError:@"撤防失败，请重试！"];
-            _systemCancelBastion.status = CustomSwitchStatusOff;
+            [ProgressHUD showError:@"获取报警日志失败！"];
         }
     }
     
@@ -256,7 +250,7 @@
 
 - (IBAction)warningLogTouched:(UIButton *)sender {
     [ProgressHUD show:@"获取报警日志中，请稍候……"];
-    NSDate* earlyDate = [NSDate dateWithTimeIntervalSinceNow:365*24*60*60];
+    NSDate* earlyDate = [NSDate dateWithTimeIntervalSinceNow:-1*365*24*60*60];
     NSDate* todatDate = [NSDate date];
     [HttpRequest warningNoteRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] begintime:[NSString dateFormater:earlyDate] endtime:[NSString dateFormater:todatDate] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
 //    [self performSegueWithIdentifier:@"warningNoteIdentifier" sender:nil];
@@ -299,7 +293,7 @@
         _enterPasswordTimer = [NSTimer timerWithTimeInterval:120 target:self selector:@selector(changeEnterPasswordSign) userInfo:nil repeats:NO];
         [self dismissViewControllerAnimated:YES completion:nil];
         
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您已连续输错撤防密码三次，请等待5分钟后再次输入" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您已连续输错撤防密码三次，请等待2分钟后再次输入" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [alertView show];
     }
     

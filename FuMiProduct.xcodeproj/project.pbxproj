@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F168D99197EA2C100359ED6 /* warningNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F168D98197EA2C100359ED6 /* warningNoteModel.m */; };
+		0F168D9D197EAB3E00359ED6 /* NSDate+customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F168D9C197EAB3E00359ED6 /* NSDate+customer.m */; };
+		0F168DA2197EAE9600359ED6 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F168D9F197EAE9600359ED6 /* note.png */; };
+		0F168DA3197EAE9600359ED6 /* time1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F168DA0197EAE9600359ED6 /* time1.png */; };
+		0F168DA4197EAE9600359ED6 /* time2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F168DA1197EAE9600359ED6 /* time2.png */; };
+		0F168DA8197EB60300359ED6 /* warningNoteInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F168DA7197EB60300359ED6 /* warningNoteInfoCell.m */; };
+		0F168DAE197EB68600359ED6 /* warningNoteDeviceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F168DAD197EB68600359ED6 /* warningNoteDeviceInfoCell.m */; };
 		0F3CE43919475D94009D2B8D /* selectDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CE43819475D94009D2B8D /* selectDeviceViewController.m */; };
 		0F3CE43C19475DA8009D2B8D /* synDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CE43B19475DA8009D2B8D /* synDeviceViewController.m */; };
 		0F3CE43F194763BF009D2B8D /* deviceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CE43E194763BF009D2B8D /* deviceListModel.m */; };
@@ -158,6 +165,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F168D97197EA2C100359ED6 /* warningNoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = warningNoteModel.h; path = Model/warningNoteModel.h; sourceTree = "<group>"; };
+		0F168D98197EA2C100359ED6 /* warningNoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = warningNoteModel.m; path = Model/warningNoteModel.m; sourceTree = "<group>"; };
+		0F168D9B197EAB3E00359ED6 /* NSDate+customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+customer.h"; path = "NSDate+customer/NSDate+customer.h"; sourceTree = "<group>"; };
+		0F168D9C197EAB3E00359ED6 /* NSDate+customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+customer.m"; path = "NSDate+customer/NSDate+customer.m"; sourceTree = "<group>"; };
+		0F168D9F197EAE9600359ED6 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = note.png; path = warningNote/note.png; sourceTree = "<group>"; };
+		0F168DA0197EAE9600359ED6 /* time1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time1.png; path = warningNote/time1.png; sourceTree = "<group>"; };
+		0F168DA1197EAE9600359ED6 /* time2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time2.png; path = warningNote/time2.png; sourceTree = "<group>"; };
+		0F168DA6197EB60300359ED6 /* warningNoteInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = warningNoteInfoCell.h; path = settingViewController/warningNote/warningNoteInfoCell.h; sourceTree = "<group>"; };
+		0F168DA7197EB60300359ED6 /* warningNoteInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = warningNoteInfoCell.m; path = settingViewController/warningNote/warningNoteInfoCell.m; sourceTree = "<group>"; };
+		0F168DAC197EB68600359ED6 /* warningNoteDeviceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = warningNoteDeviceInfoCell.h; path = settingViewController/warningNote/warningNoteDeviceInfoCell.h; sourceTree = "<group>"; };
+		0F168DAD197EB68600359ED6 /* warningNoteDeviceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = warningNoteDeviceInfoCell.m; path = settingViewController/warningNote/warningNoteDeviceInfoCell.m; sourceTree = "<group>"; };
 		0F3CE43719475D94009D2B8D /* selectDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectDeviceViewController.h; sourceTree = "<group>"; };
 		0F3CE43819475D94009D2B8D /* selectDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectDeviceViewController.m; sourceTree = "<group>"; };
 		0F3CE43A19475DA8009D2B8D /* synDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = synDeviceViewController.h; sourceTree = "<group>"; };
@@ -410,6 +428,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F168D9A197EAAFD00359ED6 /* NSDate+customer */ = {
+			isa = PBXGroup;
+			children = (
+				0F168D9B197EAB3E00359ED6 /* NSDate+customer.h */,
+				0F168D9C197EAB3E00359ED6 /* NSDate+customer.m */,
+			);
+			name = "NSDate+customer";
+			sourceTree = "<group>";
+		};
+		0F168D9E197EAE2E00359ED6 /* warningNote */ = {
+			isa = PBXGroup;
+			children = (
+				0F168D9F197EAE9600359ED6 /* note.png */,
+				0F168DA0197EAE9600359ED6 /* time1.png */,
+				0F168DA1197EAE9600359ED6 /* time2.png */,
+			);
+			name = warningNote;
+			sourceTree = "<group>";
+		};
+		0F168DA5197EB53400359ED6 /* warningNote */ = {
+			isa = PBXGroup;
+			children = (
+				0F168DA6197EB60300359ED6 /* warningNoteInfoCell.h */,
+				0F168DA7197EB60300359ED6 /* warningNoteInfoCell.m */,
+				0F168DAC197EB68600359ED6 /* warningNoteDeviceInfoCell.h */,
+				0F168DAD197EB68600359ED6 /* warningNoteDeviceInfoCell.m */,
+			);
+			name = warningNote;
+			sourceTree = "<group>";
+		};
 		0F3CE43519475D7C009D2B8D /* selectDeviceViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				640851DC197CB7F3004409F1 /* warningNoteViewController */,
+				0F168D9A197EAAFD00359ED6 /* NSDate+customer */,
 				64EF13C619752417003D9F71 /* PAPasscode */,
 				64A0E612194EE43B00C72D78 /* videoCallViewController */,
 				64A0E60E194EE31900C72D78 /* customerServiceViewController */,
@@ -547,6 +596,7 @@
 		0F5A42CC193B44BD00D9B932 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				0F168D9E197EAE2E00359ED6 /* warningNote */,
 				64EF13CA19752427003D9F71 /* PaPasscode */,
 				0F5A430E193B8CB300D9B932 /* setting */,
 				0F5A42E9193B5D8B00D9B932 /* main */,
@@ -594,6 +644,7 @@
 		0F5A42E4193B4A7800D9B932 /* settingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0F168DA5197EB53400359ED6 /* warningNote */,
 				64EF13DB19753D6E003D9F71 /* passwordSwitchCell */,
 				64A0E60A194E853400C72D78 /* alarmVolumeCell */,
 				64A0E606194E850700C72D78 /* alarmTimeCell */,
@@ -698,6 +749,8 @@
 				649B0F661946B49A00A7103E /* synchrDataModel.m */,
 				64A8AE541949453E00E348B0 /* commonRespondModel.h */,
 				64A8AE551949453E00E348B0 /* commonRespondModel.m */,
+				0F168D97197EA2C100359ED6 /* warningNoteModel.h */,
+				0F168D98197EA2C100359ED6 /* warningNoteModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1069,6 +1122,7 @@
 				0F5A4305193B5D8B00D9B932 /* message.png in Resources */,
 				0F5A42CB193B43A700D9B932 /* ICETutorialController_iPhone.xib in Resources */,
 				64EF13D419752427003D9F71 /* papasscode_failed_bg@2x.png in Resources */,
+				0F168DA3197EAE9600359ED6 /* time1.png in Resources */,
 				64090E701945BED800A61333 /* ProgressHUD.bundle in Resources */,
 				0F5A42A5193B432600D9B932 /* Images.xcassets in Resources */,
 				0F5A4306193B5D8B00D9B932 /* off.png in Resources */,
@@ -1095,6 +1149,7 @@
 				0F5A4317193B8CB300D9B932 /* ios无线报警防区定义2副本坐标及色彩.png in Resources */,
 				0F5A4304193B5D8B00D9B932 /* mainBg.png in Resources */,
 				64EF13D519752427003D9F71 /* papasscode_marker.png in Resources */,
+				0F168DA2197EAE9600359ED6 /* note.png in Resources */,
 				64EF13D81975314B003D9F71 /* icon_07-40.png in Resources */,
 				0F5A4315193B8CB300D9B932 /* homeIcon.png in Resources */,
 				0F5A4314193B8CB300D9B932 /* 24.png in Resources */,
@@ -1110,6 +1165,7 @@
 				0F5A4303193B5D8B00D9B932 /* leaveHome.png in Resources */,
 				0F5A4318193B8CB300D9B932 /* settingBg.png in Resources */,
 				0F5A4307193B5D8B00D9B932 /* on.png in Resources */,
+				0F168DA4197EAE9600359ED6 /* time2.png in Resources */,
 				0F5A42E0193B49EA00D9B932 /* login.png in Resources */,
 				64A8AE5D19496BC100E348B0 /* expandable.png in Resources */,
 				64EF13D619752427003D9F71 /* papasscode_marker@2x.png in Resources */,
@@ -1136,8 +1192,10 @@
 				0F3CE43919475D94009D2B8D /* selectDeviceViewController.m in Sources */,
 				6450588C194009FE007BBA9B /* SKSTableViewCell.m in Sources */,
 				64157FA4193D7124004972C5 /* ASIWebPageRequest.m in Sources */,
+				0F168D99197EA2C100359ED6 /* warningNoteModel.m in Sources */,
 				0F5A429D193B432600D9B932 /* AppDelegate.m in Sources */,
 				64157FB1193D7124004972C5 /* ASIS3ObjectRequest.m in Sources */,
+				0F168D9D197EAB3E00359ED6 /* NSDate+customer.m in Sources */,
 				640E7D25193F2D570082EFF2 /* NSString+random.m in Sources */,
 				640E7D13193F1B0A0082EFF2 /* JSONKit.m in Sources */,
 				64157FA0193D7124004972C5 /* ASIFormDataRequest.m in Sources */,
@@ -1176,6 +1234,7 @@
 				0F3CE43F194763BF009D2B8D /* deviceListModel.m in Sources */,
 				640851E2197CC3EC004409F1 /* NSString+dateFormater.m in Sources */,
 				64157F9E193D7124004972C5 /* ASIDataDecompressor.m in Sources */,
+				0F168DA8197EB60300359ED6 /* warningNoteInfoCell.m in Sources */,
 				64BBCDA8193D770600796A68 /* CustomSwitch.m in Sources */,
 				64157FA2193D7124004972C5 /* ASIInputStream.m in Sources */,
 				0F5DF9C91948A0CC005DCCD3 /* deleyTimeCell.m in Sources */,
@@ -1196,6 +1255,7 @@
 				64157FA7193D7124004972C5 /* ASICloudFilesContainerRequest.m in Sources */,
 				64A8AE691949A0F300E348B0 /* wirelessAlarmDeviceCell.m in Sources */,
 				64A0E611194EE35000C72D78 /* customerServiceViewController.m in Sources */,
+				0F168DAE197EB68600359ED6 /* warningNoteDeviceInfoCell.m in Sources */,
 				0F5A4322193B975100D9B932 /* UIColor+hexStringToColor.m in Sources */,
 				64157FAF193D7124004972C5 /* ASIS3BucketObject.m in Sources */,
 				0F5A42C6193B434100D9B932 /* ICETutorialController.m in Sources */,

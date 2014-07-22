@@ -10,6 +10,7 @@
 #import "GlobalHeader.h"
 #import "commonRespondModel.h"
 #import "hostPropertyModel.h"
+#import "warningNoteModel.h"
 
 @interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate>
 {
@@ -17,6 +18,8 @@
     hostPropertyModel* _hostPropertyModel;
     BOOL _enterPassWordGapIsDone;  //输入密码错误后的时间间隔是否已到
     NSTimer* _enterPasswordTimer;
+    
+    warningNoteModel* _warningNoteModel;
 }
 
 
