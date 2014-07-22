@@ -24,7 +24,7 @@
     
     [asiRequest setRequestMethod:@"POST"];
     [asiRequest appendPostData:[postdata dataUsingEncoding:NSUTF8StringEncoding]];
-    [asiRequest setUseSessionPersistence:YES];
+    [asiRequest setUseSessionPersistence:NO];
     [asiRequest setUseCookiePersistence:NO];
     [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
