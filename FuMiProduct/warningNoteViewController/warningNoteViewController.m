@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _cnTime = [[ NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"] ;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +58,14 @@
     UITableViewCell* _cell;
     if (indexPath.row == 0) {
         _cell = [tableView dequeueReusableCellWithIdentifier:@"warningStartCell"];
-        _cell.textLabel.text = _warningNote.starttime;
+        NSDate* startDate = [NSDate dateWithString:_warningNote.starttime];
+        _cell.textLabel.text = [startDate descriptionWithLocale:_cnTime];
         return _cell;
     }else if(indexPath.row == 1)
     {
         _cell = [tableView dequeueReusableCellWithIdentifier:@"warningEndCell"];
-        _cell.textLabel.text = _warningNote.endtime;
+        NSDate* startDate = [NSDate dateWithString:_warningNote.endtime];
+        _cell.textLabel.text = [startDate descriptionWithLocale:_cnTime];
         return _cell;
     }else if(indexPath.row == 2)
     {

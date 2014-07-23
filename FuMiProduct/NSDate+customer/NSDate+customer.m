@@ -9,6 +9,21 @@
 #import "NSDate+customer.h"
 
 @implementation NSDate (customer)
+
++(NSDate*)dateWithString:(NSString*)dateStr
+{
+    if (dateStr.length < 14) {
+        return nil;
+    }
+    NSUInteger year = [[dateStr substringWithRange:NSMakeRange(0,4)] intValue];
+    NSUInteger month = [[dateStr substringWithRange:NSMakeRange(4,2)] intValue];
+    NSUInteger day = [[dateStr substringWithRange:NSMakeRange(6,2)] intValue];
+    NSUInteger hour = [[dateStr substringWithRange:NSMakeRange(8,2)] intValue];
+    NSUInteger min = [[dateStr substringWithRange:NSMakeRange(10,2)] intValue];
+    NSUInteger sec = [[dateStr substringWithRange:NSMakeRange(12,2)] intValue];
+    return [NSDate dateWithYear:year Month:month Day:day Hours:hour Min:min Sec:sec];
+}
+
 +(NSDate*)dateWithYear:(NSUInteger)year Month:(NSUInteger)month Day:(NSUInteger)day Hours:(NSUInteger)hour Min:(NSUInteger)min Sec:(NSUInteger)sec
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -23,5 +38,12 @@
     [toTimeComponents setMinute:min];
     [toTimeComponents setSecond:sec];
     return [cal dateFromComponents:toTimeComponents];
+}
+
++(NSDate *)convertDateToLocalTime: (NSDate *)forDate {
+    NSTimeZone *nowTimeZone = [NSTimeZone localTimeZone];
+    int timeOffset = [nowTimeZone secondsFromGMTForDate:forDate];
+    NSDate *newDate = [forDate dateByAddingTimeInterval:timeOffset];
+    return newDate;
 }
 @end

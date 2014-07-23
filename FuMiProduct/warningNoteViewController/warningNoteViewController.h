@@ -10,11 +10,13 @@
 #import "warningNoteModel.h"
 #import "warningNoteDeviceInfoCell.h"
 #import "warningNoteInfoCell.h"
+#import "GlobalHeader.h"
 
 @interface warningNoteViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     warningNoteDeviceInfoCell* _deviceInfoCell;
     warningNoteInfoCell*_infoCell;
+    NSLocale * _cnTime;
 }
 
 @property(nonatomic, strong)warningNoteModel* warningNote;

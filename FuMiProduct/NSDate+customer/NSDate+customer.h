@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (customer)
++(NSDate *)convertDateToLocalTime:(NSDate *)forDate;
++(NSDate*)dateWithString:(NSString*)dateStr;
 +(NSDate*)dateWithYear:(NSUInteger)year Month:(NSUInteger)month Day:(NSUInteger)day Hours:(NSUInteger)hour Min:(NSUInteger)min Sec:(NSUInteger)sec;
 @end

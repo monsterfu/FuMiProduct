@@ -183,6 +183,7 @@
         }
     }else if (request.tag == TAG_WARNINGNOTE){
         if(dictionary!=nil){
+            [ProgressHUD showSuccess:@"获取报警日志成功！"];
             _warningNoteModel = [[warningNoteModel alloc]initWithDictionary:dictionary];
             [self performSegueWithIdentifier:@"warningNoteIdentifier" sender:nil];
         }else{
@@ -247,8 +248,8 @@
 
 - (IBAction)warningLogTouched:(UIButton *)sender {
     [ProgressHUD show:@"获取报警日志中，请稍候……"];
-    NSDate* earlyDate = [NSDate dateWithTimeIntervalSinceNow:-1*365*24*60*60];
-    NSDate* todatDate = [NSDate date];
+    NSDate* earlyDate = [NSDate convertDateToLocalTime:[NSDate dateWithTimeIntervalSinceNow:-1*365*24*60*60]];
+    NSDate* todatDate = [NSDate convertDateToLocalTime:[NSDate dateWithTimeIntervalSinceNow:-10]];
     [HttpRequest warningNoteRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] begintime:[NSString dateFormater:earlyDate] endtime:[NSString dateFormater:todatDate] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
 //    [self performSegueWithIdentifier:@"warningNoteIdentifier" sender:nil];
 }

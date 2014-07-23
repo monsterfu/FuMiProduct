@@ -17,7 +17,7 @@
         _seqno = [dictionary objectForKey:@"seqno"];
         _respcode = [dictionary objectForKey:@"respcode"];
         _respinfo = [dictionary objectForKey:@"respinfo"];
-        _starttime = [dictionary objectForKey:@"starttime"];
+        _starttime = [dictionary objectForKey:@"begintime"];
         _endtime = [dictionary objectForKey:@"endtime"];
         
         NSArray* arr1=[dictionary objectForKey:@"alarmmessages"];
