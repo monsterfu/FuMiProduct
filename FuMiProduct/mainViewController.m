@@ -223,18 +223,15 @@
                 }
                 PAPasscodeViewController *passcodeViewController = [[PAPasscodeViewController alloc] initForAction:PasscodeActionEnter];
                 passcodeViewController.delegate = self;
-                passcodeViewController.passcode = @"1234";
+                passcodeViewController.passcode =  [USER_DEFAULT stringForKey:KEY_PASSWORD];
                 passcodeViewController.simple = CustomSwitchStatusOff;
                 [self presentViewController:passcodeViewController animated:YES completion:nil];
             }else{
                 [ProgressHUD show:@"撤防中，请稍候……"];
                 [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
             }
-            
         }
-        
     }
-        
 }
 
 #pragma mark ButtonAction

@@ -120,6 +120,9 @@
             [ProgressHUD showError:_loginModel.respinfo];
         }else{
             [ProgressHUD dismiss];
+            [USER_DEFAULT removeObjectForKey:KEY_PASSWORD];
+            [USER_DEFAULT setObject:_passWordTextField.text forKey:KEY_PASSWORD];
+            [USER_DEFAULT synchronize];
             [self performSegueWithIdentifier:LOGININ_ACTION sender:nil];
         }
     }else{

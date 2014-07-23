@@ -86,6 +86,7 @@
 #define BASE @"http://qq200824960.eicp.net:26110/EaseHome/door"
 #define KEY_FIRST_USE    @"key_first_use"
 #define KEY_USERNAME     @"key_username"
+#define KEY_PASSWORD     @"key_password"
 #define KEY_HOSTID       @"key_hostId"
 
 //HTTP

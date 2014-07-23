@@ -26,12 +26,12 @@
     [asiRequest appendPostData:[postdata dataUsingEncoding:NSUTF8StringEncoding]];
     [asiRequest setUseSessionPersistence:NO];
     [asiRequest setUseCookiePersistence:NO];
+    [asiRequest setTimeOutSeconds:3.0f];
     [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
     
     [asiRequest setDidFinishSelector:finishSel];
     [asiRequest setDidFailSelector:failSel];
-    
     [asiRequest startAsynchronous];
     
 }
@@ -54,7 +54,6 @@
     
     [request setDidFinishSelector:finishSel];
     [request setDidFailSelector:failSel];
-    
     [request startAsynchronous];
 }
 
