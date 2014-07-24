@@ -29,7 +29,9 @@
     // Do any additional setup after loading the view.
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _cnTime = [[ NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"] ;
+    _cnTime = [[ NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+    
+    _sizeArray = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +51,22 @@
 }
 */
 #pragma mark - UITableViewDelegate
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row  < 2) {
+        return 49;
+    }else if(indexPath.row == 2){
+        CGSize size = [_warningNote.respinfo sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT*2) lineBreakMode:NSLineBreakByWordWrapping];
+        return size.height;
+    }else{
+        
+        alarmMessageModel* model = [_warningNote.alarmessageArray objectAtIndex:indexPath.row - 3];
+        NSString* str = [NSString stringWithFormat:@"时间:%@,信息:%@",model.time,model.content];
+        
+        CGSize size = [str sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT*2) lineBreakMode:NSLineBreakByWordWrapping];
+        return size.height + 60;
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3+_warningNote.alarmessageArray.count;
@@ -77,8 +95,11 @@
         _deviceInfoCell = [tableView dequeueReusableCellWithIdentifier:@"warningNoteDeviceInfoIdentifier"];
         alarmMessageModel* model = [_warningNote.alarmessageArray objectAtIndex:indexPath.row - 3];
         _deviceInfoCell.deviceName.text = model.name;
-        _deviceInfoCell.Info.text = [NSString stringWithFormat:@"时间:%@,信息:%@",model.messages.time,model.messages.content];
+        _deviceInfoCell.Info.text = [NSString stringWithFormat:@"时间:%@,信息:%@",model.time,model.content];
         return _deviceInfoCell;
     }
+}
+- (IBAction)backButtonTouch:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

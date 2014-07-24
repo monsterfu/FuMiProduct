@@ -17,6 +17,8 @@
     warningNoteDeviceInfoCell* _deviceInfoCell;
     warningNoteInfoCell*_infoCell;
     NSLocale * _cnTime;
+    
+    NSMutableArray* _sizeArray;
 }
 
 @property(nonatomic, strong)warningNoteModel* warningNote;
@@ -24,5 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)backButtonTouch:(UIButton *)sender;
 
 @end

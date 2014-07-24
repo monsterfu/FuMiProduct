@@ -192,7 +192,12 @@
     switch (indexPath.row) {
         case 0:
         {
-            settingCell.isExpandable = YES;
+            if ([_rfidDeviceArray count]) {
+                settingCell.isExpandable = YES;
+            }else{
+                settingCell.isExpandable = NO;
+            }
+            
         }
             break;
             

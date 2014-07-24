@@ -114,11 +114,10 @@
 -(void) GetResult:(ASIHTTPRequest *)request
 {    
     NSData *responseData = [request responseData];
-    //    NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"pageSource:%@",pageSource);
     NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSLog(@"dic is %@",dictionary);
     if(dictionary!=nil){
         _hostDeviceArray = [NSMutableArray array];

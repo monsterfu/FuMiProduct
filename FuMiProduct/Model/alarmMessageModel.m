@@ -17,7 +17,8 @@
         _type = [dictionary objectForKey:@"type"];
         _deveceid = [dictionary objectForKey:@"id"];
         _name = [dictionary objectForKey:@"name"];
-        _messages = [[alarmMessageCellModel alloc]initWithDictionary:[dictionary objectForKey:@"messages"]];
+        _time = [dictionary objectForKey:@"time"];
+        _content = [dictionary objectForKey:@"content"];
     }
     return self;
     

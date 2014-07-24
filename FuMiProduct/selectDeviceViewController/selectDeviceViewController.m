@@ -66,7 +66,7 @@
     
     _hostLogo = [_hostDeviceArray objectAtIndex:indexPath.row];
         
-    [self performSegueWithIdentifier:@"selectDeviceAction" sender:nil];
+    [self performSegueWithIdentifier:SELECTDEVICE_ACTION sender:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -23,11 +23,12 @@
     [asiRequest setTag:tag];
     
     [asiRequest setRequestMethod:@"POST"];
-    [asiRequest appendPostData:[postdata dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSStringEncoding gbkEncoding  =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    [asiRequest appendPostData:[postdata dataUsingEncoding:gbkEncoding]];
     [asiRequest setUseSessionPersistence:NO];
     [asiRequest setUseCookiePersistence:NO];
-    [asiRequest setTimeOutSeconds:3.0f];
-    [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
+//    [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
     
     [asiRequest setDidFinishSelector:finishSel];

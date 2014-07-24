@@ -129,7 +129,7 @@
     NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"responseData is %@",pageSource);
     NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     
     NSLog(@"dic is %@",dictionary);
     if (request.tag == TAG_LJSF) {
@@ -202,7 +202,7 @@
     if (customSwitch == _systemBastion) {
         if (status == CustomSwitchStatusOn) {
             [ProgressHUD show:@"离家设防中，请稍候……"];
-            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
+            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
         }
         
     }else if(customSwitch == _homeBastion){
