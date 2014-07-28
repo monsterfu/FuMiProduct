@@ -99,6 +99,7 @@
 {
     [USER_DEFAULT removeObjectForKey:KEY_USERNAME];
     [USER_DEFAULT setObject:_userNameTextField.text forKey:KEY_USERNAME];
+    [USER_DEFAULT setObject:_passWordTextField.text forKey:KEY_PASSWORD];
     [USER_DEFAULT synchronize];
     
     

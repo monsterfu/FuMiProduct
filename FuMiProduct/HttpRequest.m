@@ -68,7 +68,7 @@
     if ([USER_DEFAULT objectForKey:BPushRequestUserIdKey]) {
         baiduKey = [USER_DEFAULT objectForKey:BPushRequestUserIdKey];
     }
-    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4002\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"passwd\":\"%@\",\"seqno\":\"%@\",\"baiduusrid\":\"%@\"}",mobile,hostid,password,seqno,baiduKey] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
+    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4002\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"passwd\":\"%@\",\"seqno\":\"%@\",\"baiduusrid\":\"%@\"}",mobile,hostid,password,seqno,baiduKey] tag:TAG_LOGIN delegate:delegate finishSel:finishSel failSel:failSel];
 }
 //
 //+(void)synchrDataRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{

@@ -189,9 +189,21 @@
         }else{
             [ProgressHUD showError:@"获取报警日志失败！"];
         }
+    }else if (request.tag == TAG_LOGIN){
+        if(dictionary!=nil){
+            [ProgressHUD showSuccess:@"更新设防状态成功！"];
+            _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray];
+            if ([_loginModel.respcode doubleValue] == respcode_Success) {
+                if ([_hostDeviceArray count]) {
+                    _hostPropertyModel = [_hostDeviceArray objectAtIndex:0];
+                    [self changeWorkStatus:_hostPropertyModel.workstatus];
+                }
+            }
+
+        }else{
+            [ProgressHUD showError:@"获取报警日志失败！"];
+        }
     }
-    
-    
     
 }
 
@@ -295,5 +307,10 @@
         [alertView show];
     }
     
+}
+- (IBAction)refreshStatusButtonTouch:(UIButton *)sender {
+    [HttpRequest LoginRequest:[USER_DEFAULT stringForKey:KEY_USERNAME] password:[USER_DEFAULT stringForKey:KEY_PASSWORD] hostId:_hostLogoModel.hostid seqno:[NSString randomStr] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+    
+    [ProgressHUD show:@"更新设防状态中,请稍候"];
 }
 @end

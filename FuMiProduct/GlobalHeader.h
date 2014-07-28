@@ -109,6 +109,8 @@ typedef enum _respcodeEnum {
     
     respcode_unknow = 9999
 } respcodeEnum;
+//login
+#define TAG_LOGIN     2000
 //main
 
 #define TAG_LJSF     3000

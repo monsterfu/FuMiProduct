@@ -11,6 +11,7 @@
 #import "commonRespondModel.h"
 #import "hostPropertyModel.h"
 #import "warningNoteModel.h"
+#import "loginModel.h"
 
 @interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate>
 {
@@ -18,7 +19,7 @@
     hostPropertyModel* _hostPropertyModel;
     BOOL _enterPassWordGapIsDone;  //输入密码错误后的时间间隔是否已到
     NSTimer* _enterPasswordTimer;
-    
+    loginModel* _loginModel;
     warningNoteModel* _warningNoteModel;
 }
 
@@ -49,5 +50,7 @@
 - (IBAction)messageTouched:(UIButton *)sender;
 //客服
 - (IBAction)customerServiceTouched:(UIButton *)sender;
+//刷新最新
+- (IBAction)refreshStatusButtonTouch:(UIButton *)sender;
 
 @end
