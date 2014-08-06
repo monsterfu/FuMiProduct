@@ -271,7 +271,7 @@
 -(void)updateTimeValue:(NSUInteger)value
 {
     [ProgressHUD show:@"修改报警时长中，请稍候"];
-    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:[NSString stringWithFormat:@"%d",value*6000] retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:[NSString stringWithFormat:@"%d",value] retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
 }
 #pragma mark -alarmVolumeCellDelegate
 

@@ -26,8 +26,8 @@
     
     NSStringEncoding gbkEncoding  =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     [asiRequest appendPostData:[postdata dataUsingEncoding:gbkEncoding]];
-    [asiRequest setUseSessionPersistence:NO];
-    [asiRequest setUseCookiePersistence:NO];
+    [asiRequest setUseSessionPersistence:YES];
+    [asiRequest setUseCookiePersistence:YES];
 //    [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
     

@@ -191,15 +191,17 @@
         }
     }else if (request.tag == TAG_LOGIN){
         if(dictionary!=nil){
-            [ProgressHUD showSuccess:@"更新设防状态成功！"];
+            
             _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray];
             if ([_loginModel.respcode doubleValue] == respcode_Success) {
                 if ([_hostDeviceArray count]) {
                     _hostPropertyModel = [_hostDeviceArray objectAtIndex:0];
                     [self changeWorkStatus:_hostPropertyModel.workstatus];
+                    [ProgressHUD showSuccess:@"更新设防状态成功！"];
+                    return;
                 }
             }
-
+            [ProgressHUD showSuccess:@"更新设防状态失败,请重试!"];
         }else{
             [ProgressHUD showError:@"获取报警日志失败！"];
         }
