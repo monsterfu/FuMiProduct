@@ -24,11 +24,11 @@
     
     [asiRequest setRequestMethod:@"POST"];
     
-    NSStringEncoding gbkEncoding  =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    [asiRequest appendPostData:[postdata dataUsingEncoding:gbkEncoding]];
+//    NSStringEncoding gbkEncoding  =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    [asiRequest appendPostData:[postdata dataUsingEncoding:NSUTF8StringEncoding]];
     [asiRequest setUseSessionPersistence:YES];
     [asiRequest setUseCookiePersistence:YES];
-//    [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
+    [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
     
     [asiRequest setDidFinishSelector:finishSel];
@@ -87,16 +87,30 @@
     [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4004\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"alarmphones\":%@}",mobile,host,seqno,alarmPhone] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
 }
 
-+(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDevice:(rfidDeviceModel*)rfidDevice delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
++(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDeviceArray:(NSArray*)rfidDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
     
-    NSString* device = [NSString stringWithFormat:@"[{\"id\":\"%@\",\"name\":\"%@\",\"opertype\":\"%@\"}]",rfidDevice.deveceid,rfidDevice.name,rfidDevice.opertype];
-    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4005\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"rfiddevices\":%@}",mobile,host,seqno,device] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
+    NSString* deviceInfo = @"[";
+    for (rfidDeviceModel* model in rfidDeviceArray) {
+        NSString* device = [NSString stringWithFormat:@"[{\"id\":\"%@\",\"name\":\"%@\",\"opertype\":\"%@\"}]",model.deveceid,model.name,model.opertype];
+        deviceInfo = [deviceInfo stringByAppendingString:device];
+        deviceInfo = [deviceInfo stringByAppendingString:@","];
+    }
+    deviceInfo = [deviceInfo stringByAppendingString:@"]"];
+    
+    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4005\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"RFIDdevices\":%@}",mobile,host,seqno,deviceInfo] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
 }
 
-+(void)wirelessAlarmDeviceSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno wirelessAlarmDevice:(wirelessAlarmDeviceModel*)wirelessAlarmDevice delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
++(void)wirelessAlarmDeviceSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno wirelessAlarmDeviceArray:(NSArray*)wirelessAlarmDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
     
-    NSString* device = [NSString stringWithFormat:@"[{\"type\":\"%@\",\"deveceid\":\"%@\",\"name\":\"%@\",\"status\":\"%@\",\"opertype\":\"%@\"}]",wirelessAlarmDevice.type,wirelessAlarmDevice.deveceid,wirelessAlarmDevice.name,wirelessAlarmDevice.status,wirelessAlarmDevice.opertype];
-    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4006\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"rfiddevices\":%@}",mobile,host,seqno,device] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
+    NSString* deviceInfo = @"[";
+    for (wirelessAlarmDeviceModel* model in wirelessAlarmDeviceArray) {
+        NSString* device = [NSString stringWithFormat:@"{\"type\":\"%@\",\"deveceid\":\"%@\",\"name\":\"%@\",\"status\":\"%@\",\"opertype\":\"%@\",\"id\":\"%@\"}",model.type,model.deveceid,model.name,model.status,model.opertype,model.deveceid];
+        deviceInfo = [deviceInfo stringByAppendingString:device];
+        deviceInfo = [deviceInfo stringByAppendingString:@","];
+    }
+    deviceInfo = [deviceInfo stringByAppendingString:@"]"];
+    
+    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4006\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"alarmdevices\":%@}",mobile,host,seqno,deviceInfo] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
 }
 
 +(void)warningSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmMessage:(alarmMessageModel*)alarmMessage delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{

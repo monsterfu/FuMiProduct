@@ -10,13 +10,19 @@
 #import "GlobalHeader.h"
 #import "wirelessAlarmDeviceModel.h"
 
+
+@protocol wirelessAlarmDeviceCellDelegate <NSObject>
+-(void)wirelessAlarmDeviceSet:(wirelessAlarmDeviceModel*)deviceModel num:(NSUInteger)tag;
+@end
+
 @interface wirelessAlarmDeviceCell : UITableViewCell<UITextFieldDelegate>
 {
-    commonRespondModel* _commRespondModel;
+    NSArray* _deviceTypeArray;
 }
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-
+@property (weak, nonatomic) id<wirelessAlarmDeviceCellDelegate>delegate;
 
 @property(nonatomic, strong)wirelessAlarmDeviceModel* deviceModel;
+@property (nonatomic, assign)NSUInteger tag;
 @end

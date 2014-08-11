@@ -11,7 +11,7 @@
 #import "wirelessAlarmDeviceCell.h"
 #import "wirelessAlarmDeviceModel.h"
 
-@interface wirelessAlarmAreaSettingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate>
+@interface wirelessAlarmAreaSettingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,wirelessAlarmDeviceCellDelegate>
 {
     NSArray* _nameArray;
     wirelessAlarmDeviceCell* _deviceCell;
@@ -20,6 +20,9 @@
     NSMutableArray* _commonFQArray;
     NSMutableArray* _homeFQArray;
     NSMutableArray* _allDayFQArray;
+    
+    NSMutableDictionary* _deviceTypeDic;
+    commonRespondModel* _commRespondModel;
 }
 
 @property (strong,nonatomic) NSMutableArray* alarmDeviceArray;

@@ -32,6 +32,10 @@
     _cnTime = [[ NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
     
     _sizeArray = [NSMutableArray array];
+    
+    UIView* footView = [UIView new];
+    [footView setBackgroundColor:[UIColor clearColor]];
+    [_tableView setTableFooterView:footView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +60,7 @@
     if (indexPath.row  < 2) {
         return 49;
     }else if(indexPath.row == 2){
+        return 50;
         CGSize size = [_warningNote.respinfo sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT*2) lineBreakMode:NSLineBreakByWordWrapping];
         return size.height;
     }else{
@@ -88,11 +93,15 @@
     }else if(indexPath.row == 2)
     {
         _infoCell = [tableView dequeueReusableCellWithIdentifier:@"warningNoteInfoIdentifier"];
-        _infoCell.textView.text = _warningNote.respinfo;
+        if (_warningNote.alarmessageArray.count == 0) {
+            _infoCell.textView.text = @"暂无报警信息";
+        }else{
+            _infoCell.textView.text = _warningNote.respinfo;
+        }
         return _infoCell;
     }else
     {
-        _deviceInfoCell = [tableView dequeueReusableCellWithIdentifier:@"warningNoteDeviceInfoIdentifier"];
+        _deviceInfoCell = [tableView dequeueReusableCellWithIdentifier:@"warningNoteDeviceInfoIdentifier" forIndexPath:indexPath];
         alarmMessageModel* model = [_warningNote.alarmessageArray objectAtIndex:indexPath.row - 3];
         _deviceInfoCell.deviceName.text = model.name;
         _deviceInfoCell.Info.text = [NSString stringWithFormat:@"时间:%@,信息:%@",model.time,model.content];

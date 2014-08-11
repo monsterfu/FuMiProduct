@@ -59,6 +59,13 @@
     }
     
     _enterPassWordGapIsDone = YES;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshStatus) name:NSNotificationCenter_UpdateHostInfo object:nil];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NSNotificationCenter_UpdateHostInfo object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +74,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)refreshStatus
+{
+    [self refreshStatusButtonTouch:nil];
+}
 -(void)changeWorkStatus:(NSString*)status
 {
     if ([status isEqualToString:HostWorkSts_LJSF]) {
@@ -192,6 +203,10 @@
     }else if (request.tag == TAG_LOGIN){
         if(dictionary!=nil){
             
+            [_hostDeviceArray removeAllObjects];
+            [_alarmDeviceArray removeAllObjects];
+            [_rfidDeviceArray removeAllObjects];
+            
             _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray];
             if ([_loginModel.respcode doubleValue] == respcode_Success) {
                 if ([_hostDeviceArray count]) {
@@ -201,7 +216,7 @@
                     return;
                 }
             }
-            [ProgressHUD showSuccess:@"更新设防状态失败,请重试!"];
+            [ProgressHUD showError:[NSString stringWithFormat:@"更新设防状态失败,%@",_loginModel.respinfo]];
         }else{
             [ProgressHUD showError:@"获取报警日志失败！"];
         }
@@ -311,7 +326,7 @@
     
 }
 - (IBAction)refreshStatusButtonTouch:(UIButton *)sender {
-    [HttpRequest LoginRequest:[USER_DEFAULT stringForKey:KEY_USERNAME] password:[USER_DEFAULT stringForKey:KEY_PASSWORD] hostId:_hostLogoModel.hostid seqno:[NSString randomStr] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+    [HttpRequest LoginRequest:[NSString userName] password:[USER_DEFAULT stringForKey:KEY_PASSWORD] hostId:_hostLogoModel.hostid seqno:[NSString randomStr] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
     
     [ProgressHUD show:@"更新设防状态中,请稍候"];
 }

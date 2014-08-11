@@ -27,9 +27,9 @@
 
 +(void)addAlarmphoneNumRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmTelephone:(alarmTelephoneModel*)alarmTelephone delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
-+(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDevice:(rfidDeviceModel*)rfidDevice delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
++(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDeviceArray:(NSArray*)rfidDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
-+(void)wirelessAlarmDeviceSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno wirelessAlarmDevice:(wirelessAlarmDeviceModel*)wirelessAlarmDevice delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
++(void)wirelessAlarmDeviceSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno wirelessAlarmDeviceArray:(NSArray*)wirelessAlarmDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
 +(void)warningSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmMessage:(alarmMessageModel*)alarmMessage delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 

@@ -57,17 +57,21 @@
 //无线报警设备类型 13
 #define AlarmDeviceType_1       @"01"   //门磁
 #define AlarmDeviceType_2       @"02"   //烟感
-#define AlarmDeviceType_3       @"03"   //红外
+#define AlarmDeviceType_3       @"03"   //红外人体感应
 #define AlarmDeviceType_4       @"04"   //水侵
 #define AlarmDeviceType_5       @"05"   //雾霾
-#define AlarmDeviceType_6       @"06"   //幕帘
+//#define AlarmDeviceType_6       @"06"   //幕帘
+#define AlarmDeviceType_7       @"07"   //遥控
+#define AlarmDeviceType_8       @"08"   //无线煤气感应
+#define AlarmDeviceType_9       @"09"   //栅栏
+
 
 //无线报警设备警备状态 14
 #define AlarmDeviceSts_1        @"00"   //暂时备用
-#define AlarmDeviceSts_2        @"01"   //普通警备
-#define AlarmDeviceSts_3        @"10"   //24 小时警备
-#define AlarmDeviceSts_4        @"11"   //在家模式警备
-
+#define AlarmDeviceSts_2        @"0E"   //普通警备
+#define AlarmDeviceSts_3        @"0D"   //24 小时警备
+#define AlarmDeviceSts_4        @"06"   //在家模式警备
+#define AlarmDeviceSts_5        @"05"   //独立防区
 //操作类别 15
 #define OperType_Add        @"01"   //增加
 #define OperType_Del        @"02"   //删除
@@ -123,4 +127,9 @@ typedef enum _respcodeEnum {
 
 
 #define TAG_WARNINGNOTE      (4008)
+
+
+//通知中心
+
+#define NSNotificationCenter_UpdateHostInfo      @"NSNotificationCenter_UpdateHostInfo"
 #endif

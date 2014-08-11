@@ -139,6 +139,8 @@
     if (indexPath.row == 0) {
         _rfidDeviceCell =[tableView dequeueReusableCellWithIdentifier:@"deviceIdentifier"];
         _rfidDeviceCell.rfidModel = [_rfidDeviceArray objectAtIndex:indexPath.subRow-1];
+        _rfidDeviceCell.tag = indexPath.subRow-1;
+        _rfidDeviceCell.delegate = self;
         return _rfidDeviceCell;
     }else if(indexPath.row == 2){
         _alarmNumCell= [tableView dequeueReusableCellWithIdentifier:@"alarmNumIdentifier"];
@@ -151,7 +153,7 @@
             return _alarmVolumeCell;
         }else{
             _alarmTimeCell = [tableView dequeueReusableCellWithIdentifier:@"alarmTimeIdentifier"];
-            [_alarmTimeCell setCellValue:[_hostPropertyModel.alarmtime floatValue]/6000];
+            [_alarmTimeCell setCellValue:[_hostPropertyModel.alarmtime integerValue]];
             _alarmTimeCell.delegate = self;
             return _alarmTimeCell;
         }
@@ -261,30 +263,38 @@
         [self performSegueWithIdentifier:WIRELESSALARMACTION sender:nil];
     }else if(indexPath.row == 2){
         //[self performSegueWithIdentifier:ALARMPHONENUMACTION sender:nil];
-    }else if(indexPath.row == 8)
+    }else if(indexPath.row == 9)
         [self performSegueWithIdentifier:FUMIKEFUACTION sender:nil];
     
 }
-
+#pragma mark - rfidDeviceCellDelegate
+-(void)rfidSet:(rfidDeviceModel*)model num:(NSUInteger)tag
+{
+    [_rfidDeviceArray removeObjectAtIndex:tag];
+    [_rfidDeviceArray insertObject:model atIndex:tag];
+    
+    
+    [HttpRequest rfidSetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] rfidDeviceArray:_rfidDeviceArray delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+}
 #pragma mark -alarmTimeCellDelegate
 
 -(void)updateTimeValue:(NSUInteger)value
 {
     [ProgressHUD show:@"修改报警时长中，请稍候"];
-    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:[NSString stringWithFormat:@"%d",value] retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:[NSString stringWithFormat:@"%d",value] retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
 }
 #pragma mark -alarmVolumeCellDelegate
 
 -(void)updateVolumeValue:(NSUInteger)value
 {
     [ProgressHUD show:@"修改报警音量中，请稍候"];
-    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:[NSString stringWithFormat:@"%d",value] alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:[NSString stringWithFormat:@"%d",value] alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
 }
 #pragma mark - deleyTimeCellDelegate
 -(void)updateOutInTimeValue:(NSUInteger)value
 {
     [ProgressHUD show:@"修改出入时延中，请稍候"];
-    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"福米" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:[NSString stringWithFormat:@"%d",value] almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_OUTIN_DELAYTIME];
+    [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:[NSString stringWithFormat:@"%d",value] almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_OUTIN_DELAYTIME];
 }
 #pragma mark - passwordSwitchCellDelegate
 -(void)openPassword:(BOOL)open

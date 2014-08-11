@@ -52,37 +52,11 @@
         _name = _rfidModel.name;
         _rfidModel.name = textField.text;
         _rfidModel.opertype = OperType_Mof;
-        [HttpRequest rfidSetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] rfidDevice:_rfidModel delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(rfidSet:num:)]) {
+            [self.delegate rfidSet:_rfidModel num:self.tag];
+        }
     }
     return YES;
 }
-#pragma mark -http result
 
--(void) GetErr:(ASIHTTPRequest *)request
-{
-    _deviceNameField.text = _name;
-    [ProgressHUD showError:@"修改设备名失败"];
-}
--(void) GetResult:(ASIHTTPRequest *)request
-{
-    NSData *responseData = [request responseData];
-    //    NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"pageSource:%@",pageSource);
-    NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    NSLog(@"dic is %@",dictionary);
-    if(dictionary!=nil){
-        _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
-        if ([_commRespondModel.respcode intValue]!= respcode_Success) {
-            [ProgressHUD showError:_commRespondModel.respinfo];
-            _deviceNameField.text = _name;
-        }else{
-            [ProgressHUD showSuccess:@"设置成功！"];
-        }
-    }else{
-        [ProgressHUD showError:_commRespondModel.respinfo];
-        _deviceNameField.text = _name;
-    }
-}
 @end

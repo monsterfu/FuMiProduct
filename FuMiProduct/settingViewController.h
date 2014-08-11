@@ -16,7 +16,7 @@
 #import "passwordSwitchCell.h"
 #import "wirelessAlarmAreaSettingViewController.h"
 
-@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate,passwordSwitchCellDelegate>
+@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate,passwordSwitchCellDelegate,rfidDeviceCellDelegate>
 {
     NSArray* _nameArray;
     deleyTimeCell* _deleyTimeCell;

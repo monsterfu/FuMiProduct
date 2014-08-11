@@ -545,7 +545,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="warningStartCell" textLabel="HyK-fE-0hy" imageView="Eg1-ZU-8VA" rowHeight="49" style="IBUITableViewCellStyleDefault" id="EWt-Yg-dAK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="warningStartCell" textLabel="HyK-fE-0hy" imageView="Eg1-ZU-8VA" rowHeight="49" style="IBUITableViewCellStyleDefault" id="EWt-Yg-dAK">
                                         <rect key="frame" x="0.0" y="22" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EWt-Yg-dAK" id="BQY-88-5i7">
@@ -566,7 +566,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="warningEndCell" textLabel="udW-Eh-QuP" imageView="4Qq-ma-gZX" rowHeight="49" style="IBUITableViewCellStyleDefault" id="As2-aF-UBm">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="warningEndCell" textLabel="udW-Eh-QuP" imageView="4Qq-ma-gZX" rowHeight="49" style="IBUITableViewCellStyleDefault" id="As2-aF-UBm">
                                         <rect key="frame" x="0.0" y="71" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="As2-aF-UBm" id="Ykf-qp-WKL">
@@ -587,7 +587,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="warningNoteInfoIdentifier" rowHeight="172" id="mxV-LY-jj2" customClass="warningNoteInfoCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="warningNoteInfoIdentifier" rowHeight="172" id="mxV-LY-jj2" customClass="warningNoteInfoCell">
                                         <rect key="frame" x="0.0" y="120" width="320" height="172"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mxV-LY-jj2" id="uro-kO-Hno">
@@ -611,7 +611,7 @@
                                             <outlet property="textView" destination="5WL-wh-A6f" id="uR3-MB-a84"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="warningNoteDeviceInfoIdentifier" rowHeight="173" id="kqR-cs-Ulm" customClass="warningNoteDeviceInfoCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="warningNoteDeviceInfoIdentifier" rowHeight="173" id="kqR-cs-Ulm" customClass="warningNoteDeviceInfoCell">
                                         <rect key="frame" x="0.0" y="292" width="320" height="173"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqR-cs-Ulm" id="Qsm-60-51e">

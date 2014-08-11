@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface warningNoteDeviceInfoCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *deviceName;
-@property (weak, nonatomic) IBOutlet UITextView *Info;
+@property (strong, nonatomic) IBOutlet UILabel *deviceName;
+@property (strong, nonatomic) IBOutlet UITextView *Info;
 
 @end

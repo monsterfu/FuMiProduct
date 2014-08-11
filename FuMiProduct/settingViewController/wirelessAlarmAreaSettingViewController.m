@@ -36,12 +36,14 @@
     UIView *view =[ [UIView alloc]init];
     view.backgroundColor = [UIColor clearColor];
     [_tableView setTableFooterView:view];
+    
+    _deviceTypeDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"无线门磁",@"01",@"无线烟感",@"02",@"无线红外人体感应",@"03",@"无线红外广角幕帘",@"04",@"无线红外栅栏",@"05",@"无线水侵",@"06",@"无线煤气感应",@"07",@"无线遥控",@"08",@"无线雾霾",@"09",nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of a, nilny resources that can be recreated.
 }
 
 -(void)setAlarmDeviceArray:(NSMutableArray *)alarmDeviceArray
@@ -53,11 +55,13 @@
     _allDayFQArray  = [NSMutableArray array];
     
     for (wirelessAlarmDeviceModel* model in _alarmDeviceArray) {
-        if ([model.type isEqualToString:AlarmDeviceSts_2]) {
+        if ([model.status isEqualToString:AlarmDeviceSts_2]) {
             [_commonFQArray addObject:model];
-        }else if([model.type isEqualToString:AlarmDeviceSts_3]) {
+        }else if([model.status isEqualToString:AlarmDeviceSts_3]) {
             [_allDayFQArray addObject:model];
-        }else if([model.type isEqualToString:AlarmDeviceSts_4]) {
+        }else if([model.status isEqualToString:AlarmDeviceSts_4]) {
+            [_homeFQArray addObject:model];
+        }else if([model.status isEqualToString:AlarmDeviceSts_5]) {
             [_homeFQArray addObject:model];
         }
     }
@@ -125,6 +129,9 @@
     }else if (indexPath.row == 2) {
         _deviceCell.deviceModel = [_allDayFQArray objectAtIndex:indexPath.subRow-1];
     }
+    _deviceCell.nameLabel.text = [_deviceTypeDic objectForKey:_deviceCell.deviceModel.type];
+    _deviceCell.delegate = self;
+    _deviceCell.tag = indexPath.row;
     return _deviceCell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForSubRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,8 +152,9 @@
         {
             if ([_commonFQArray count]) {
                 settingCell.isExpandable = YES;
-            }else
+            }else{
                 settingCell.isExpandable = NO;
+            }
             
         }
             break;
@@ -184,5 +192,43 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didSelectRowAtIndexPath:%d",indexPath.row);
+}
+
+#pragma mark -wirelessAlarmDeviceCellDelegate
+-(void)wirelessAlarmDeviceSet:(wirelessAlarmDeviceModel *)deviceModel num:(NSUInteger)tag
+{
+    [_alarmDeviceArray removeObjectAtIndex:tag];
+    [_alarmDeviceArray insertObject:deviceModel atIndex:tag];
+    
+    [HttpRequest wirelessAlarmDeviceSetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] wirelessAlarmDeviceArray:_alarmDeviceArray delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+//    [HttpRequest wirelessAlarmDeviceSetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] wirelessAlarmDevice:_deviceModel delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+
+}
+
+#pragma mark -http result
+
+-(void) GetErr:(ASIHTTPRequest *)request
+{
+    [ProgressHUD showError:@"修改报警设备名失败"];
+}
+-(void) GetResult:(ASIHTTPRequest *)request
+{
+    NSData *responseData = [request responseData];
+    //    NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"pageSource:%@",pageSource);
+    NSError *error;
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    NSLog(@"dic is %@",dictionary);
+    if(dictionary!=nil){
+        _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
+        if ([_commRespondModel.respcode intValue]!= respcode_Success) {
+            [ProgressHUD showError:_commRespondModel.respinfo];
+        }else{
+            [ProgressHUD showSuccess:@"修改报警设备名成功!"];
+        }
+    }else{
+        [ProgressHUD showError:_commRespondModel.respinfo];
+    }
 }
 @end
