@@ -25,7 +25,7 @@
 
 +(void)proportySetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno name:(NSString*)name email:(NSString*)email question:(NSString*)question answer:(NSString*)answer workstatus:(NSString*)workstatus rspdelay:(NSString*)rspdelay almvolume:(NSString*)almvolume alarmtime:(NSString*)alarmtime retpwdflag:(NSString*)retpwdflag onekeyphone:(NSString*)onekeyphone address:(NSString*)address delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel tag:(NSUInteger)tag;
 
-+(void)addAlarmphoneNumRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmTelephone:(alarmTelephoneModel*)alarmTelephone delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
++(void)addAlarmphoneNumRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmTelephoneArray:(NSMutableArray*)alarmTelephoneArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 
 +(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDeviceArray:(NSArray*)rfidDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel;
 

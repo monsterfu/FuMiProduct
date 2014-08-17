@@ -10,7 +10,7 @@
 #import "hostPropertyModel.h"
 #import "wirelessAlarmDeviceModel.h"
 #import "rfidDeviceModel.h"
-
+#import "alarmTelephoneModel.h"
 
 @interface loginModel : NSObject
 
@@ -21,6 +21,7 @@
 @property(nonatomic,strong)hostPropertyModel* hostattrs;
 @property(nonatomic,strong)wirelessAlarmDeviceModel* alarmdevices;
 @property(nonatomic,strong)rfidDeviceModel* rfiddevices;
+@property(nonatomic,strong)alarmTelephoneModel* alarmPhoneModel;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary hostArray:(NSMutableArray*)hostArray alarmDeviceArray:(NSMutableArray*)alarmDeviceArray rfidDeviceArray:(NSMutableArray*)rfidArray;
+- (id)initWithDictionary:(NSDictionary *)dictionary hostArray:(NSMutableArray*)hostArray alarmDeviceArray:(NSMutableArray*)alarmDeviceArray rfidDeviceArray:(NSMutableArray*)rfidArray alarmPhoneArray:(NSMutableArray*)alarmPhoneArray;
 @end

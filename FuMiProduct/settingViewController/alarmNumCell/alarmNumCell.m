@@ -36,6 +36,7 @@
 -(void)setAlarmTeleModel:(alarmTelephoneModel *)alarmTeleModel
 {
     _alarmTeleModel = alarmTeleModel;
+    _phoneNumField.text = alarmTeleModel.alarmphone;
      _phoneNumField.delegate = self;
 }
 
@@ -66,7 +67,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ([self isMobileNumber:textField.text]) {
-        [ProgressHUD show:@"添加报警电话，请稍候"];
         [_phoneNumField resignFirstResponder];
         if (_alarmTeleModel == nil) {
             _alarmTeleModel = [[alarmTelephoneModel alloc]init];
@@ -74,35 +74,12 @@
             _alarmTeleModel.opertype = OperType_Add;
         }
         _alarmTeleModel.alarmphone = textField.text;
-        [HttpRequest addAlarmphoneNumRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] alarmTelephone:_alarmTeleModel delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
+        
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(alarmNumCellupdatePhoneNum:num:)]) {
+            [self.delegate alarmNumCellupdatePhoneNum:_alarmTeleModel num:self.tag];
+        }
+        
     }
     return YES;
-}
-
-#pragma mark -http result
-
--(void) GetErr:(ASIHTTPRequest *)request
-{
-    [ProgressHUD showError:@"报警电话添加失败"];
-}
--(void) GetResult:(ASIHTTPRequest *)request
-{
-    NSData *responseData = [request responseData];
-    //    NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString*pageSource = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"pageSource:%@",pageSource);
-    NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[pageSource dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    NSLog(@"dic is %@",dictionary);
-    if(dictionary!=nil){
-        _commRespondModel = [[commonRespondModel alloc]initWithDictionary:dictionary];
-        if ([_commRespondModel.respcode intValue] != respcode_Success) {
-            [ProgressHUD showError:_commRespondModel.respinfo];
-        }else{
-            [ProgressHUD showSuccess:@"报警电话设置成功!"];
-        }
-    }else{
-        [ProgressHUD showError:_commRespondModel.respinfo];
-    }
 }
 @end

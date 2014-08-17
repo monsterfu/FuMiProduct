@@ -67,6 +67,7 @@
     NSString* baiduKey = @"";
     if ([USER_DEFAULT objectForKey:BPushRequestUserIdKey]) {
         baiduKey = [USER_DEFAULT objectForKey:BPushRequestUserIdKey];
+        NSLog(@"baiduKey百度云ID:%@",baiduKey);
     }
     [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4002\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"passwd\":\"%@\",\"seqno\":\"%@\",\"baiduusrid\":\"%@\"}",mobile,hostid,password,seqno,baiduKey] tag:TAG_LOGIN delegate:delegate finishSel:finishSel failSel:failSel];
 }
@@ -81,10 +82,18 @@
     [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4003\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"name\":\"%@\",\"email\":\"%@\",\"question\":\"%@\",\"answer\":\"%@\",\"workstatus\":\"%@\",\"rspdelay\":\"%@\",\"almvolume\":\"%@\",\"alarmtime\":\"%@\",\"retpwdflag\":\"%@\",\"onekeyphone\":\"%@\",\"address\":\"%@\"}",mobile,host,seqno,name,email,question,answer,workstatus,rspdelay,almvolume,alarmtime,retpwdflag,onekeyphone,address] tag:tag delegate:delegate finishSel:finishSel failSel:failSel];
 }
 
-+(void)addAlarmphoneNumRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmTelephone:(alarmTelephoneModel*)alarmTelephone delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
++(void)addAlarmphoneNumRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno alarmTelephoneArray:(NSMutableArray*)alarmTelephoneArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{
     
-    NSString* alarmPhone = [NSString stringWithFormat:@"[{\"alarmphone\":\"%@\",\"phonetype\":\"%@\",\"opertype\":\"%@\"}]",alarmTelephone.alarmphone,alarmTelephone.phonetype,alarmTelephone.opertype];
-    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4004\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"alarmphones\":%@}",mobile,host,seqno,alarmPhone] tag:0 delegate:delegate finishSel:finishSel failSel:failSel];
+    NSString* deviceInfo = @"[";
+    for (alarmTelephoneModel* model in alarmTelephoneArray) {
+        NSString* device = [NSString stringWithFormat:@"{\"alarmphone\":\"%@\",\"phonetype\":\"%@\",\"opertype\":\"%@\"}",model.alarmphone,model.phonetype,model.opertype];
+        deviceInfo = [deviceInfo stringByAppendingString:device];
+        deviceInfo = [deviceInfo stringByAppendingString:@","];
+    }
+    deviceInfo = [deviceInfo stringByAppendingString:@"]"];
+    
+//    NSString* alarmPhone = [NSString stringWithFormat:@"[{\"alarmphone\":\"%@\",\"phonetype\":\"%@\",\"opertype\":\"%@\"}]",alarmTelephone.alarmphone,alarmTelephone.phonetype,alarmTelephone.opertype];
+    [self Request:BASE postdate:[NSString stringWithFormat:@"{\"msgcode\":\"4004\",\"mobile\":\"%@\",\"hostid\":\"%@\",\"seqno\":\"%@\",\"alarmphones\":%@}",mobile,host,seqno,deviceInfo] tag:TAG_ALARMPHONE_EDIT delegate:delegate finishSel:finishSel failSel:failSel];
 }
 
 +(void)rfidSetRequest:(NSString*)mobile host:(NSString*)host seqno:(NSString*)seqno rfidDeviceArray:(NSArray*)rfidDeviceArray delegate:(id)delegate finishSel:(SEL)finishSel failSel:(SEL)failSel{

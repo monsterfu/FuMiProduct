@@ -27,6 +27,7 @@
 @property (strong,nonatomic) NSMutableArray* hostDeviceArray;
 @property (strong,nonatomic) NSMutableArray* alarmDeviceArray;
 @property (strong,nonatomic) NSMutableArray* rfidDeviceArray;
+@property (strong,nonatomic) NSMutableArray* alarmPhoneArray;//报警电话
 
 @property (nonatomic, strong)hostLogoModel* hostLogoModel;
 @property (nonatomic, strong)commonRespondModel* commRespondModel;

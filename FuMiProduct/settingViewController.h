@@ -16,7 +16,7 @@
 #import "passwordSwitchCell.h"
 #import "wirelessAlarmAreaSettingViewController.h"
 
-@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate,passwordSwitchCellDelegate,rfidDeviceCellDelegate>
+@interface settingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SKSTableViewDelegate,alarmTimeCellDelegate,alarmVolumeCellDelegate,deleyTimeCellDelegate,passwordSwitchCellDelegate,rfidDeviceCellDelegate,alarmNumCellDelegate>
 {
     NSArray* _nameArray;
     deleyTimeCell* _deleyTimeCell;
@@ -32,6 +32,7 @@
 @property (strong,nonatomic) NSMutableArray* hostDeviceArray;
 @property (strong,nonatomic) NSMutableArray* alarmDeviceArray;
 @property (strong,nonatomic) NSMutableArray* rfidDeviceArray;
+@property (strong,nonatomic) NSMutableArray* alarmPhoneArray;
 
 @property (weak, nonatomic) IBOutlet SKSTableView *tableView;
 

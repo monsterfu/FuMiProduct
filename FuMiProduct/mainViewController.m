@@ -113,6 +113,7 @@
         _settingViewController.rfidDeviceArray = _rfidDeviceArray;
         _settingViewController.alarmDeviceArray = _alarmDeviceArray;
         _settingViewController.hostPropertyModel = _hostPropertyModel;
+        _settingViewController.alarmPhoneArray = _alarmPhoneArray;
     }else if([segue.identifier isEqualToString:WARNINGNOTE_Action]){
         warningNoteViewController* _warningNoteViewController = (warningNoteViewController*)[segue destinationViewController];
         _warningNoteViewController.warningNote = _warningNoteModel;
@@ -206,8 +207,9 @@
             [_hostDeviceArray removeAllObjects];
             [_alarmDeviceArray removeAllObjects];
             [_rfidDeviceArray removeAllObjects];
+            [_alarmPhoneArray removeAllObjects];
             
-            _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray];
+            _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray alarmPhoneArray:_alarmPhoneArray];
             if ([_loginModel.respcode doubleValue] == respcode_Success) {
                 if ([_hostDeviceArray count]) {
                     _hostPropertyModel = [_hostDeviceArray objectAtIndex:0];

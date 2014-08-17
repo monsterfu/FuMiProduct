@@ -69,7 +69,7 @@
         NSString* str = [NSString stringWithFormat:@"时间:%@,信息:%@",model.time,model.content];
         
         CGSize size = [str sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT*2) lineBreakMode:NSLineBreakByWordWrapping];
-        return size.height + 60;
+        return size.height + 130;
     }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

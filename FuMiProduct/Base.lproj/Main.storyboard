@@ -708,7 +708,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deviceIdentifier" rowHeight="52" id="4nF-mH-Bn3" customClass="rfidDeviceCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="deviceIdentifier" rowHeight="52" id="4nF-mH-Bn3" customClass="rfidDeviceCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nF-mH-Bn3" id="iQA-QT-NVx">
@@ -737,7 +737,7 @@
                                             <outlet property="deviceNameField" destination="nWb-6N-HO6" id="jWp-bc-OBZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmNumIdentifier" id="Fgh-Gt-6Cs" customClass="alarmNumCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmNumIdentifier" id="Fgh-Gt-6Cs" customClass="alarmNumCell">
                                         <rect key="frame" x="0.0" y="118" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgh-Gt-6Cs" id="7I8-Ax-KDG">
@@ -763,7 +763,7 @@
                                             <outlet property="phoneNumField" destination="8os-yh-d4x" id="ner-6f-tRA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="delayTimeCellIdentifier" rowHeight="56" id="ye4-qr-qhi" customClass="deleyTimeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="delayTimeCellIdentifier" rowHeight="56" id="ye4-qr-qhi" customClass="deleyTimeCell">
                                         <rect key="frame" x="0.0" y="162" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ye4-qr-qhi" id="Kcg-8X-abZ">
@@ -800,7 +800,7 @@
                                             <outlet property="timerSlier" destination="I1U-xu-8Ed" id="sck-O2-FK6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmVolumeIdentifier" rowHeight="56" id="OEK-df-Pcx" customClass="alarmVolumeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmVolumeIdentifier" rowHeight="56" id="OEK-df-Pcx" customClass="alarmVolumeCell">
                                         <rect key="frame" x="0.0" y="218" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OEK-df-Pcx" id="anV-hG-ul7">
@@ -836,7 +836,7 @@
                                             <outlet property="sliderView" destination="lfv-ih-Gdm" id="QcZ-g4-raF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTimeIdentifier" rowHeight="56" id="yhW-v6-VMO" customClass="alarmTimeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmTimeIdentifier" rowHeight="56" id="yhW-v6-VMO" customClass="alarmTimeCell">
                                         <rect key="frame" x="0.0" y="274" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhW-v6-VMO" id="7c8-FV-EwJ">
@@ -879,7 +879,7 @@
                                             <outlet property="slider" destination="SRO-fx-lSR" id="edP-4n-Bsz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordSwitchIdentifier" rowHeight="53" id="t3R-IY-gUa" customClass="passwordSwitchCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="passwordSwitchIdentifier" rowHeight="53" id="t3R-IY-gUa" customClass="passwordSwitchCell">
                                         <rect key="frame" x="0.0" y="330" width="320" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3R-IY-gUa" id="Aw0-eF-jqK">

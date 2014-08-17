@@ -51,6 +51,7 @@
         _mainViewController.rfidDeviceArray = _rfidDeviceArray;
         _mainViewController.alarmDeviceArray = _alarmDeviceArray;
         _mainViewController.hostLogoModel = _hostLogoModel;
+        _mainViewController.alarmPhoneArray = _alarmPhoneArray;
     }
 }
 #pragma mark - 
@@ -115,8 +116,10 @@
         _hostDeviceArray = [NSMutableArray array];
         _alarmDeviceArray = [NSMutableArray array];
         _rfidDeviceArray = [NSMutableArray array];
+        _alarmPhoneArray = [NSMutableArray array];
         
-        _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray];
+        
+        _loginModel = [[loginModel alloc]initWithDictionary:dictionary hostArray:_hostDeviceArray alarmDeviceArray:_alarmDeviceArray rfidDeviceArray:_rfidDeviceArray alarmPhoneArray:_alarmPhoneArray];
         if ([_loginModel.respcode doubleValue] != respcode_Success) {
             [ProgressHUD showError:_loginModel.respinfo];
         }else{

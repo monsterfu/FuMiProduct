@@ -10,7 +10,7 @@
 
 @implementation loginModel
 
-- (id)initWithDictionary:(NSDictionary *)dictionary hostArray:(NSMutableArray*)hostArray alarmDeviceArray:(NSMutableArray*)alarmDeviceArray rfidDeviceArray:(NSMutableArray*)rfidArray
+- (id)initWithDictionary:(NSDictionary *)dictionary hostArray:(NSMutableArray*)hostArray alarmDeviceArray:(NSMutableArray*)alarmDeviceArray rfidDeviceArray:(NSMutableArray*)rfidArray alarmPhoneArray:(NSMutableArray*)alarmPhoneArray
 {
     if (self = [super init])
     {
@@ -35,6 +35,12 @@
         for (NSDictionary*dic in arr3) {
             _rfiddevices = [[rfidDeviceModel alloc]initWithDictionary:dic];
             [rfidArray addObject:_rfiddevices];
+        }
+        
+        NSArray* arr4=[dictionary objectForKey:@"alarmphones"];
+        for (NSDictionary*dic in arr4) {
+            _alarmPhoneModel = [[alarmTelephoneModel alloc]initWithDictionary:dic];
+            [alarmPhoneArray addObject:_alarmPhoneModel];
         }
     }
     return self;

@@ -20,7 +20,7 @@
     NSMutableArray* _hostDeviceArray;
     NSMutableArray* _alarmDeviceArray;
     NSMutableArray* _rfidDeviceArray;
-    
+    NSMutableArray* _alarmPhoneArray;//报警电话
     NSMutableArray* _hostFetchedArray;
 }
 @property (nonatomic, strong)hostLogoModel* hostLogoModel;

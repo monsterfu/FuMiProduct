@@ -125,6 +125,7 @@ typedef enum _respcodeEnum {
 #define TAG_ALARMVOLUME   4002
 #define TAG_OUTIN_DELAYTIME    4003
 
+#define TAG_ALARMPHONE_EDIT    4007
 
 #define TAG_WARNINGNOTE      (4008)
 

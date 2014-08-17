@@ -143,7 +143,13 @@
         _rfidDeviceCell.delegate = self;
         return _rfidDeviceCell;
     }else if(indexPath.row == 2){
-        _alarmNumCell= [tableView dequeueReusableCellWithIdentifier:@"alarmNumIdentifier"];
+        _alarmNumCell= [tableView dequeueReusableCellWithIdentifier:@"alarmNumIdentifier" forIndexPath:indexPath];
+        if ([_alarmPhoneArray count]>indexPath.subRow-1) {
+            _alarmNumCell.alarmTeleModel = [_alarmPhoneArray objectAtIndex:indexPath.subRow-1];
+        }else
+            _alarmNumCell.alarmTeleModel = nil;
+        _alarmNumCell.tag = indexPath.subRow -1;
+        _alarmNumCell.delegate = self;
         return _alarmNumCell;
     }else if(indexPath.row == 3){
         if (indexPath.subRow == 1) {
@@ -260,7 +266,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 1) {
-        [self performSegueWithIdentifier:WIRELESSALARMACTION sender:nil];
+        if (![_tableView isExpandedForCellAtIndexPath:indexPath]) {
+            [self performSegueWithIdentifier:WIRELESSALARMACTION sender:nil];
+        }
     }else if(indexPath.row == 2){
         //[self performSegueWithIdentifier:ALARMPHONENUMACTION sender:nil];
     }else if(indexPath.row == 9)
@@ -289,6 +297,25 @@
 {
     [ProgressHUD show:@"修改报警音量中，请稍候"];
     [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:[NSString stringWithFormat:@"%d",value] alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ALARMTIME];
+}
+#pragma mark - alarmNumCellDelegate
+-(void)alarmNumCellupdatePhoneNum:(alarmTelephoneModel*)alarmTeleModel num:(NSUInteger)index
+{
+    [ProgressHUD show:@"添加报警电话，请稍候"];
+    
+    if (index+1 < [_alarmPhoneArray count]) {
+        [_alarmPhoneArray removeObjectAtIndex:index];
+        [_alarmPhoneArray insertObject:alarmTeleModel atIndex:index];
+    }else if (index+1 > [_alarmPhoneArray count]) {
+        [_alarmPhoneArray addObject:alarmTeleModel];
+    }
+    else
+    {
+        [_alarmPhoneArray removeLastObject];
+        [_alarmPhoneArray addObject:alarmTeleModel];
+    }
+    
+    [HttpRequest addAlarmphoneNumRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] alarmTelephoneArray:_alarmPhoneArray delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
 }
 #pragma mark - deleyTimeCellDelegate
 -(void)updateOutInTimeValue:(NSUInteger)value
@@ -331,6 +358,8 @@
                 [ProgressHUD showSuccess:@"报警音量设置成功！"];
             }else if (request.tag == TAG_OUTIN_DELAYTIME){
                 [ProgressHUD showSuccess:@"出入时延设置成功！"];
+            }else if (request.tag == TAG_ALARMPHONE_EDIT){
+                [ProgressHUD showSuccess:@"编辑报警电话成功！"];
             }
         }
     }else{
@@ -340,6 +369,8 @@
             [ProgressHUD showError:@"报警音量设置失败，请重试！"];
         }else if (request.tag == TAG_OUTIN_DELAYTIME){
             [ProgressHUD showError:@"出入时延设置失败，请重试！"];
+        }else if (request.tag == TAG_ALARMPHONE_EDIT){
+            [ProgressHUD showSuccess:@"编辑报警电话失败，请重试！"];
         }
     }
     
