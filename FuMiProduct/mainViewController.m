@@ -33,6 +33,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _hostNameTextField.text = _hostLogoModel.name;
+    UITapGestureRecognizer* tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureAction)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
     _systemBastion.arrange = CustomSwitchArrangeONLeftOFFRight;
     _systemBastion.onImage = [UIImage imageNamed:@"on.png"];
     _systemBastion.offImage = [UIImage imageNamed:@"off.png"];
@@ -72,6 +76,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)tapGestureAction
+{
+    [_hostNameTextField resignFirstResponder];
 }
 
 -(void)refreshStatus
@@ -222,6 +230,12 @@
         }else{
             [ProgressHUD showError:@"获取报警日志失败！"];
         }
+    }else if (request.tag == TAG_CHANGE_HOSTNAME){
+        if(dictionary!=nil){
+            [ProgressHUD showSuccess:@"修改主机名成功"];
+        }else{
+            [ProgressHUD showError:@"修改主机名失败！"];
+        }
     }
     
 }
@@ -232,8 +246,14 @@
 {
     if (customSwitch == _systemBastion) {
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"离家设防中，请稍候……"];
-            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
+            if ([Commonality isEnableWIFI]==1)
+            {
+                [ProgressHUD show:@"离家设防中，请稍候……"];
+                [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
+            }else{
+                
+            }
+            
         }
         
     }else if(customSwitch == _homeBastion){
@@ -331,5 +351,22 @@
     [HttpRequest LoginRequest:[NSString userName] password:[USER_DEFAULT stringForKey:KEY_PASSWORD] hostId:_hostLogoModel.hostid seqno:[NSString randomStr] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
     
     [ProgressHUD show:@"更新设防状态中,请稍候"];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.text.length > 0) {
+        _hostLogoModel.name = textField.text;
+        [ProgressHUD show:@"修改设备名中，请稍候……"];
+        [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CHANGE_HOSTNAME];
+        [_hostNameTextField resignFirstResponder];
+        return YES;
+    }else{
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"主机名不可为空" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    
+    return NO;
 }
 @end

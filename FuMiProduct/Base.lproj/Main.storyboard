@@ -254,6 +254,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBg.png" id="l6O-V0-fgU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cg0-gz-Ix5">
                                 <rect key="frame" x="6" y="30" width="49" height="48"/>
@@ -457,12 +458,31 @@
                                     <action selector="refreshStatusButtonTouch:" destination="PSS-TU-tJM" eventType="touchUpInside" id="hqd-DP-IWY"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" clearButtonMode="whileEditing" id="AAt-CU-bL1">
+                                <rect key="frame" x="173" y="65" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PSS-TU-tJM" id="mUW-zW-WSQ"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主机名：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zGh-Dd-f4S">
+                                <rect key="frame" x="106" y="65" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bRT-dd-CzD"/>
                     <connections>
                         <outlet property="homeBastion" destination="VwX-yd-nDy" id="EzI-xS-DX6"/>
+                        <outlet property="hostNameTextField" destination="AAt-CU-bL1" id="SLi-bz-Pms"/>
                         <outlet property="statusButton" destination="zeQ-r4-Mwx" id="jKP-YZ-fZ2"/>
                         <outlet property="systemBastion" destination="QUL-to-oe5" id="hdc-C6-D7M"/>
                         <outlet property="systemCancelBastion" destination="uZv-UZ-UTz" id="UUL-bO-MkA"/>
@@ -1163,6 +1183,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="10N-Rb-w2V"/>
+        <segue reference="vFG-Ss-k0R"/>
     </inferredMetricsTieBreakers>
 </document>

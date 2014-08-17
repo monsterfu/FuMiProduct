@@ -13,7 +13,7 @@
 #import "warningNoteModel.h"
 #import "loginModel.h"
 
-@interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate>
+@interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate,UITextFieldDelegate>
 {
     NSString* _telephoneName;
     hostPropertyModel* _hostPropertyModel;
@@ -53,5 +53,7 @@
 - (IBAction)customerServiceTouched:(UIButton *)sender;
 //刷新最新
 - (IBAction)refreshStatusButtonTouch:(UIButton *)sender;
+//主机名
+@property (weak, nonatomic) IBOutlet UITextField *hostNameTextField;
 
 @end

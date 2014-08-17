@@ -141,12 +141,15 @@
     NSString *alert = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     if (application.applicationState == UIApplicationStateActive) {
         // Nothing to do if applicationState is Inactive, the iOS already displayed an alert view.
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"福米智能安防"
-                                                            message:[NSString stringWithFormat:@"%@", alert]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        if (![alert isEqualToString:@"主机更新了状态"]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"福米智能安防"
+                                                                message:[NSString stringWithFormat:@"%@", alert]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"确定"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+        
     }
     [application setApplicationIconBadgeNumber:0];
     

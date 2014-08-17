@@ -72,6 +72,9 @@
 		0F5A4322193B975100D9B932 /* UIColor+hexStringToColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A4321193B975100D9B932 /* UIColor+hexStringToColor.m */; };
 		0F5DF9C21948917B005DCCD3 /* wirelessAlarmAreaSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5DF9C11948917B005DCCD3 /* wirelessAlarmAreaSettingViewController.m */; };
 		0F5DF9C91948A0CC005DCCD3 /* deleyTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5DF9C81948A0CC005DCCD3 /* deleyTimeCell.m */; };
+		0F8CD6D019A082F400D4F0C1 /* Commonality.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8CD6CF19A082F400D4F0C1 /* Commonality.m */; };
+		0F8CD6D519A084D600D4F0C1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8CD6D419A084D600D4F0C1 /* MessageUI.framework */; };
+		0F8CD6D819A0868E00D4F0C1 /* smsMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8CD6D719A0868E00D4F0C1 /* smsMsgViewController.m */; };
 		640434141941A12D00CD1D18 /* loginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640434131941A12D00CD1D18 /* loginModel.m */; };
 		640434181941A1C300CD1D18 /* hostPropertyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640434171941A1C300CD1D18 /* hostPropertyModel.m */; };
 		6404341B1941A36F00CD1D18 /* alarmTelephoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6404341A1941A36F00CD1D18 /* alarmTelephoneModel.m */; };
@@ -250,6 +253,11 @@
 		0F5DF9C11948917B005DCCD3 /* wirelessAlarmAreaSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wirelessAlarmAreaSettingViewController.m; path = settingViewController/wirelessAlarmAreaSettingViewController.m; sourceTree = "<group>"; };
 		0F5DF9C71948A0CC005DCCD3 /* deleyTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deleyTimeCell.h; path = settingViewController/deleyTimeCell/deleyTimeCell.h; sourceTree = "<group>"; };
 		0F5DF9C81948A0CC005DCCD3 /* deleyTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deleyTimeCell.m; path = settingViewController/deleyTimeCell/deleyTimeCell.m; sourceTree = "<group>"; };
+		0F8CD6CE19A082F400D4F0C1 /* Commonality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commonality.h; sourceTree = "<group>"; };
+		0F8CD6CF19A082F400D4F0C1 /* Commonality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commonality.m; sourceTree = "<group>"; };
+		0F8CD6D419A084D600D4F0C1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0F8CD6D619A0868E00D4F0C1 /* smsMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smsMsgViewController.h; sourceTree = "<group>"; };
+		0F8CD6D719A0868E00D4F0C1 /* smsMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smsMsgViewController.m; sourceTree = "<group>"; };
 		640434121941A12D00CD1D18 /* loginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loginModel.h; path = Model/loginModel.h; sourceTree = "<group>"; };
 		640434131941A12D00CD1D18 /* loginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = loginModel.m; path = Model/loginModel.m; sourceTree = "<group>"; };
 		640434161941A1C300CD1D18 /* hostPropertyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hostPropertyModel.h; path = Model/hostPropertyModel.h; sourceTree = "<group>"; };
@@ -402,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				640E7D22193F21690082EFF2 /* CoreTelephony.framework in Frameworks */,
+				0F8CD6D519A084D600D4F0C1 /* MessageUI.framework in Frameworks */,
 				640E7D0F193F1B010082EFF2 /* libz.dylib in Frameworks */,
 				64BBCD9E193D73B600796A68 /* libxml2.dylib in Frameworks */,
 				64157FCA193D7174004972C5 /* libz.1.2.5.dylib in Frameworks */,
@@ -500,6 +509,7 @@
 		0F5A428B193B432600D9B932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F8CD6D419A084D600D4F0C1 /* MessageUI.framework */,
 				640E7D21193F21690082EFF2 /* CoreTelephony.framework */,
 				640E7D0E193F1B010082EFF2 /* libz.dylib */,
 				64BBCD9D193D73B600796A68 /* libxml2.dylib */,
@@ -542,6 +552,8 @@
 				0F5A42E8193B4D9A00D9B932 /* GlobalHeader.h */,
 				64BBCDAA193D7F7D00796A68 /* HttpRequest.h */,
 				64BBCDAB193D7F7D00796A68 /* HttpRequest.m */,
+				0F8CD6D619A0868E00D4F0C1 /* smsMsgViewController.h */,
+				0F8CD6D719A0868E00D4F0C1 /* smsMsgViewController.m */,
 				0F5A429B193B432600D9B932 /* AppDelegate.h */,
 				0F5A429C193B432600D9B932 /* AppDelegate.m */,
 				0F5A429E193B432600D9B932 /* Main.storyboard */,
@@ -703,6 +715,8 @@
 		0F5A431F193B973000D9B932 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				0F8CD6CE19A082F400D4F0C1 /* Commonality.h */,
+				0F8CD6CF19A082F400D4F0C1 /* Commonality.m */,
 				0F5A4320193B975100D9B932 /* UIColor+hexStringToColor.h */,
 				0F5A4321193B975100D9B932 /* UIColor+hexStringToColor.m */,
 				640E7D23193F2D570082EFF2 /* NSString+random.h */,
@@ -1201,6 +1215,7 @@
 				64157FA0193D7124004972C5 /* ASIFormDataRequest.m in Sources */,
 				64157FAD193D7124004972C5 /* Reachability.m in Sources */,
 				6404341E1941A41700CD1D18 /* wirelessAlarmDeviceModel.m in Sources */,
+				0F8CD6D819A0868E00D4F0C1 /* smsMsgViewController.m in Sources */,
 				64157F9F193D7124004972C5 /* ASIDownloadCache.m in Sources */,
 				640434271941A5C300CD1D18 /* alarmMessageCellModel.m in Sources */,
 				6404341B1941A36F00CD1D18 /* alarmTelephoneModel.m in Sources */,
@@ -1242,6 +1257,7 @@
 				649B0F671946B49A00A7103E /* synchrDataModel.m in Sources */,
 				640434141941A12D00CD1D18 /* loginModel.m in Sources */,
 				0F5DF9C21948917B005DCCD3 /* wirelessAlarmAreaSettingViewController.m in Sources */,
+				0F8CD6D019A082F400D4F0C1 /* Commonality.m in Sources */,
 				64A0E60D194E855500C72D78 /* alarmVolumeCell.m in Sources */,
 				640434241941A55400CD1D18 /* alarmMessageModel.m in Sources */,
 				64A68EB01948421A00511173 /* deviceTableViewCell.m in Sources */,

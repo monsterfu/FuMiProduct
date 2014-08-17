@@ -12,6 +12,7 @@
 
 //
 @class ProgressHUD;
+#import <MessageUI/MessageUI.h>
 #import "loginViewController.h"
 #import "UIColor+hexStringToColor.h"
 #import "CustomSwitch.h"
@@ -23,6 +24,7 @@
 #import "sksTableview/SKSTableViewCell.h"
 #import "ProgressHUD.h"
 #import "commonRespondModel.h"
+#import "Commonality.h"
 #import "NSString+userName.h"
 #import "NSString+dateFormater.h"
 #import "PAPasscodeViewController.h"
@@ -120,6 +122,7 @@ typedef enum _respcodeEnum {
 #define TAG_LJSF     3000
 #define TAG_ZJSF     3001
 #define TAG_CF       3002
+#define TAG_CHANGE_HOSTNAME   3003  //修改主机名
 
 #define TAG_ALARMTIME     4001
 #define TAG_ALARMVOLUME   4002
