@@ -262,7 +262,7 @@
         _picker.messageComposeDelegate = self;
         _picker.navigationBar.tintColor = [UIColor blackColor];
         _picker.body = [NSString stringWithFormat:@"Fumi_alarm_status:%@",status];
-        _picker.recipients = [NSArray arrayWithObject:_hostPropertyModel.hostphone];
+        _picker.recipients = [NSArray arrayWithObject:_hostPropertyModel.onekeyphone];
         [self presentViewController:_picker animated:YES completion:nil];
     }
 }
@@ -277,7 +277,7 @@
 {
     if (customSwitch == _systemBastion) {
         if (status == CustomSwitchStatusOn) {
-            if ([Commonality isEnableWIFI]==1)
+            if ([Commonality isEnableWIFI])
             {
                 [ProgressHUD show:@"离家设防中，请稍候……"];
                 [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
@@ -289,7 +289,7 @@
         
     }else if(customSwitch == _homeBastion){
         if (status == CustomSwitchStatusOn) {
-            if ([Commonality isEnableWIFI]==1){
+            if ([Commonality isEnableWIFI]){
                 [ProgressHUD show:@"在家设防中，请稍候……"];
                 [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
             }else{
@@ -314,7 +314,7 @@
                 passcodeViewController.simple = CustomSwitchStatusOff;
                 [self presentViewController:passcodeViewController animated:YES completion:nil];
             }else{
-                if ([Commonality isEnableWIFI]==1)
+                if ([Commonality isEnableWIFI])
                 {
                     [ProgressHUD show:@"撤防中，请稍候……"];
                     [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
@@ -410,7 +410,7 @@
 }
 - (IBAction)systemBastionButtonTouch:(UIButton *)sender {
     if (sender.selected == NO) {
-        if ([Commonality isEnableWIFI]==1)
+        if ([Commonality isEnableWIFI])
         {
             [ProgressHUD show:@"离家设防中，请稍候……"];
             [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
@@ -422,7 +422,7 @@
 
 - (IBAction)homeBastionButtonTouch:(UIButton *)sender {
     if (sender.selected == NO) {
-        if ([Commonality isEnableWIFI]==1){
+        if ([Commonality isEnableWIFI]){
             [ProgressHUD show:@"在家设防中，请稍候……"];
             [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
         }else{
@@ -447,7 +447,7 @@
             passcodeViewController.simple = CustomSwitchStatusOff;
             [self presentViewController:passcodeViewController animated:YES completion:nil];
         }else{
-            if ([Commonality isEnableWIFI]==1)
+            if ([Commonality isEnableWIFI])
             {
                 [ProgressHUD show:@"撤防中，请稍候……"];
                 [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];

@@ -72,11 +72,14 @@
 
 
 +(int) isEnableWIFI{
-    if ([[Reachability reachabilityForLocalWiFi]currentReachabilityStatus]==NotReachable) {
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable) {
         return 0;
     }
-    if ([[Reachability reachabilityForLocalWiFi]currentReachabilityStatus]==ReachableViaWiFi) {
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==ReachableViaWiFi) {
         return 1;
+    }
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==kReachableViaWWAN) {
+        return 2;
     }
     return 2;
 }
