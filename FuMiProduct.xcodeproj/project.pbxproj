@@ -123,6 +123,8 @@
 		64157FC6193D7150004972C5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC5193D7150004972C5 /* SystemConfiguration.framework */; };
 		64157FC8193D7157004972C5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC7193D7157004972C5 /* MobileCoreServices.framework */; };
 		64157FCA193D7174004972C5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC9193D7174004972C5 /* libz.1.2.5.dylib */; };
+		641CB7BD19A1E77400BFE5B1 /* btn_radio_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 641CB7BB19A1E77400BFE5B1 /* btn_radio_off.png */; };
+		641CB7BE19A1E77400BFE5B1 /* btn_radio_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 641CB7BC19A1E77400BFE5B1 /* btn_radio_on.png */; };
 		6450588B194009FE007BBA9B /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64505888194009FE007BBA9B /* SKSTableView.m */; };
 		6450588C194009FE007BBA9B /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6450588A194009FE007BBA9B /* SKSTableViewCell.m */; };
 		649B0F671946B49A00A7103E /* synchrDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649B0F661946B49A00A7103E /* synchrDataModel.m */; };
@@ -351,6 +353,8 @@
 		64157FC5193D7150004972C5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		64157FC7193D7157004972C5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		64157FC9193D7174004972C5 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		641CB7BB19A1E77400BFE5B1 /* btn_radio_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_off.png; sourceTree = "<group>"; };
+		641CB7BC19A1E77400BFE5B1 /* btn_radio_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_on.png; sourceTree = "<group>"; };
 		64505887194009FE007BBA9B /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
 		64505888194009FE007BBA9B /* SKSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableView.m; sourceTree = "<group>"; };
 		64505889194009FE007BBA9B /* SKSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCell.h; sourceTree = "<group>"; };
@@ -676,6 +680,8 @@
 			isa = PBXGroup;
 			children = (
 				64EF13D9197531C6003D9F71 /* button_i1.png */,
+				641CB7BB19A1E77400BFE5B1 /* btn_radio_off.png */,
+				641CB7BC19A1E77400BFE5B1 /* btn_radio_on.png */,
 				64EF13D71975314B003D9F71 /* icon_07-40.png */,
 				0F5A430C193B895400D9B932 /* phone@2x.png */,
 				0F5A42EA193B5D8B00D9B932 /* back.png */,
@@ -1161,6 +1167,7 @@
 				0F5A4297193B432600D9B932 /* InfoPlist.strings in Resources */,
 				0F5A430B193B5D8B00D9B932 /* warning.png in Resources */,
 				0F5A4317193B8CB300D9B932 /* ios无线报警防区定义2副本坐标及色彩.png in Resources */,
+				641CB7BE19A1E77400BFE5B1 /* btn_radio_on.png in Resources */,
 				0F5A4304193B5D8B00D9B932 /* mainBg.png in Resources */,
 				64EF13D519752427003D9F71 /* papasscode_marker.png in Resources */,
 				0F168DA2197EAE9600359ED6 /* note.png in Resources */,
@@ -1168,6 +1175,7 @@
 				0F5A4315193B8CB300D9B932 /* homeIcon.png in Resources */,
 				0F5A4314193B8CB300D9B932 /* 24.png in Resources */,
 				64157FAC193D7124004972C5 /* README-GHUnit in Resources */,
+				641CB7BD19A1E77400BFE5B1 /* btn_radio_off.png in Resources */,
 				0F5A42FF193B5D8B00D9B932 /* homeMid.png in Resources */,
 				640E7D0C193F18DA0082EFF2 /* BPushConfig.plist in Resources */,
 				0F5A42D7193B465000D9B932 /* background-gradient.png in Resources */,

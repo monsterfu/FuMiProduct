@@ -13,7 +13,7 @@
 #import "warningNoteModel.h"
 #import "loginModel.h"
 
-@interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate,UITextFieldDelegate>
+@interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate,UITextFieldDelegate,MFMessageComposeViewControllerDelegate>
 {
     NSString* _telephoneName;
     hostPropertyModel* _hostPropertyModel;
@@ -21,6 +21,7 @@
     NSTimer* _enterPasswordTimer;
     loginModel* _loginModel;
     warningNoteModel* _warningNoteModel;
+    MFMessageComposeViewController* _picker;
 }
 
 
@@ -31,6 +32,18 @@
 
 @property (nonatomic, strong)hostLogoModel* hostLogoModel;
 @property (nonatomic, strong)commonRespondModel* commRespondModel;
+
+
+//布防状态切换的三个按钮
+@property (weak, nonatomic) IBOutlet UIButton *systemBastionButton;
+@property (weak, nonatomic) IBOutlet UIButton *homeBastionButton;
+@property (weak, nonatomic) IBOutlet UIButton *systemCancelBastionButton;
+
+- (IBAction)systemBastionButtonTouch:(UIButton *)sender;
+- (IBAction)homeBastionButtonTouch:(UIButton *)sender;
+- (IBAction)systemCancelBastionButtonTouch:(UIButton *)sender;
+
+
 
 @property (weak, nonatomic) IBOutlet CustomSwitch *systemBastion;
 @property (weak, nonatomic) IBOutlet CustomSwitch *homeBastion;

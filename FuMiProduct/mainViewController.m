@@ -88,24 +88,37 @@
 }
 -(void)changeWorkStatus:(NSString*)status
 {
+    [_systemBastionButton setSelected:NO];
+    [_homeBastionButton setSelected:NO];
+    [_systemCancelBastionButton setSelected:NO];
+    
     if ([status isEqualToString:HostWorkSts_LJSF]) {
         [_statusButton setImage:[UIImage imageNamed:@"leaveHome.png"] forState:UIControlStateNormal];
         [_statusButton setTitle:@"离家设防" forState:UIControlStateNormal];
         [_systemBastion changeStatus:CustomSwitchStatusOn];
         [_systemCancelBastion changeStatus:CustomSwitchStatusOff];
         [_homeBastion changeStatus:CustomSwitchStatusOff];
+        
+        [_systemBastionButton setSelected:YES];
+        
     }else if ([status isEqualToString:HostWorkSts_ZJSF]) {
         [_statusButton setImage:[UIImage imageNamed:@"homeMid.png"] forState:UIControlStateNormal];
         [_statusButton setTitle:@"在家设防" forState:UIControlStateNormal];
         [_systemBastion changeStatus:CustomSwitchStatusOff];
         [_systemCancelBastion changeStatus:CustomSwitchStatusOff];
         [_homeBastion changeStatus:CustomSwitchStatusOn];
+        
+        [_homeBastionButton setSelected:YES];
+        
     }else{
         [_statusButton setImage:[UIImage imageNamed:@"chefangMid.png"] forState:UIControlStateNormal];
         [_statusButton setTitle:@"撤防" forState:UIControlStateNormal];
         [_systemBastion changeStatus:CustomSwitchStatusOff];
         [_systemCancelBastion changeStatus:CustomSwitchStatusOn];
         [_homeBastion changeStatus:CustomSwitchStatusOff];
+        
+        [_systemCancelBastionButton setSelected:YES];
+        
     }
 }
 #pragma mark - Navigation
@@ -239,7 +252,25 @@
     }
     
 }
-
+#pragma mark smsMsg
+-(void)sendMsg:(NSString*)status
+{
+    BOOL canSendSMS = [MFMessageComposeViewController canSendText];
+    NSLog(@"can send SMS [%d]",canSendSMS);
+    if (canSendSMS) {
+        _picker = [[MFMessageComposeViewController alloc] init];
+        _picker.messageComposeDelegate = self;
+        _picker.navigationBar.tintColor = [UIColor blackColor];
+        _picker.body = [NSString stringWithFormat:@"Fumi_alarm_status:%@",status];
+        _picker.recipients = [NSArray arrayWithObject:_hostPropertyModel.hostphone];
+        [self presentViewController:_picker animated:YES completion:nil];
+    }
+}
+#pragma mark 
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [_picker dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark CustomSwitchDelegate
 
 -(void)customSwitch:(CustomSwitch*)customSwitch SetStatus:(CustomSwitchStatus)status
@@ -251,15 +282,19 @@
                 [ProgressHUD show:@"离家设防中，请稍候……"];
                 [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
             }else{
-                
+                [self sendMsg:HostWorkSts_LJSF];
             }
             
         }
         
     }else if(customSwitch == _homeBastion){
         if (status == CustomSwitchStatusOn) {
-            [ProgressHUD show:@"在家设防中，请稍候……"];
-            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
+            if ([Commonality isEnableWIFI]==1){
+                [ProgressHUD show:@"在家设防中，请稍候……"];
+                [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
+            }else{
+                [self sendMsg:HostWorkSts_ZJSF];
+            }
         }
         
     }else if(customSwitch == _systemCancelBastion){
@@ -279,8 +314,14 @@
                 passcodeViewController.simple = CustomSwitchStatusOff;
                 [self presentViewController:passcodeViewController animated:YES completion:nil];
             }else{
-                [ProgressHUD show:@"撤防中，请稍候……"];
-                [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+                if ([Commonality isEnableWIFI]==1)
+                {
+                    [ProgressHUD show:@"撤防中，请稍候……"];
+                    [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+                }else{
+                    [self sendMsg:HostWorkSts_CF];
+                }
+                
             }
         }
     }
@@ -349,8 +390,6 @@
 }
 - (IBAction)refreshStatusButtonTouch:(UIButton *)sender {
     [HttpRequest LoginRequest:[NSString userName] password:[USER_DEFAULT stringForKey:KEY_PASSWORD] hostId:_hostLogoModel.hostid seqno:[NSString randomStr] delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:)];
-    
-    [ProgressHUD show:@"更新设防状态中,请稍候"];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -368,5 +407,55 @@
     }
     
     return NO;
+}
+- (IBAction)systemBastionButtonTouch:(UIButton *)sender {
+    if (sender.selected == NO) {
+        if ([Commonality isEnableWIFI]==1)
+        {
+            [ProgressHUD show:@"离家设防中，请稍候……"];
+            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_LJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_LJSF];
+        }else{
+            [self sendMsg:HostWorkSts_LJSF];
+        }
+    }
+}
+
+- (IBAction)homeBastionButtonTouch:(UIButton *)sender {
+    if (sender.selected == NO) {
+        if ([Commonality isEnableWIFI]==1){
+            [ProgressHUD show:@"在家设防中，请稍候……"];
+            [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_ZJSF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_ZJSF];
+        }else{
+            [self sendMsg:HostWorkSts_ZJSF];
+        }
+    }
+}
+
+- (IBAction)systemCancelBastionButtonTouch:(UIButton *)sender {
+    if (sender.selected == NO) {
+        BOOL passwordOpen = [USER_DEFAULT boolForKey:CHEFANG_PASSWORD_OPEN];
+        if (passwordOpen) {
+            if (!_enterPassWordGapIsDone) {
+                UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您已连续输错撤防密码三次，请等待5分钟后再次输入" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertView show];
+                _systemCancelBastion.status = CustomSwitchStatusOff;
+                return;
+            }
+            PAPasscodeViewController *passcodeViewController = [[PAPasscodeViewController alloc] initForAction:PasscodeActionEnter];
+            passcodeViewController.delegate = self;
+            passcodeViewController.passcode =  [USER_DEFAULT stringForKey:KEY_PASSWORD];
+            passcodeViewController.simple = CustomSwitchStatusOff;
+            [self presentViewController:passcodeViewController animated:YES completion:nil];
+        }else{
+            if ([Commonality isEnableWIFI]==1)
+            {
+                [ProgressHUD show:@"撤防中，请稍候……"];
+                [HttpRequest proportySetRequest:_telephoneName host:_hostLogoModel.hostid seqno:[NSString randomStr] name:_hostLogoModel.name email:@"" question:@"" answer:@"" workstatus:HostWorkSts_CF rspdelay:@"" almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_CF];
+            }else{
+                [self sendMsg:HostWorkSts_CF];
+            }
+            
+        }
+    }
 }
 @end

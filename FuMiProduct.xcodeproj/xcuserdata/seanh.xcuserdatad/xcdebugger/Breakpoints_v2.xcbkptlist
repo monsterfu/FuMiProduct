@@ -298,12 +298,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FuMiProduct/mainViewController.m"
-            timestampString = "427887160.387341"
+            timestampString = "430042674.983741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-GetResult:"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "-GetErr:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

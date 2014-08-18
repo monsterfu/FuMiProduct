@@ -429,21 +429,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="QUL-to-oe5" customClass="CustomSwitch">
-                                <rect key="frame" x="269" y="225" width="38" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="VwX-yd-nDy" customClass="CustomSwitch">
-                                <rect key="frame" x="269" y="290" width="38" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="uZv-UZ-UTz" customClass="CustomSwitch">
-                                <rect key="frame" x="269" y="364" width="38" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ADw-5z-TrI">
                                 <rect key="frame" x="10" y="129" width="86" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -476,16 +461,49 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tVN-ne-H31">
+                                <rect key="frame" x="278" y="220" width="33" height="32"/>
+                                <state key="normal" image="btn_radio_off.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="btn_radio_on.png"/>
+                                <state key="highlighted" image="btn_radio_on.png"/>
+                                <connections>
+                                    <action selector="systemBastionButtonTouch:" destination="PSS-TU-tJM" eventType="touchUpInside" id="Ebr-i4-gh8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="04Z-ca-tfD">
+                                <rect key="frame" x="278" y="285" width="33" height="32"/>
+                                <state key="normal" image="btn_radio_off.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="btn_radio_on.png"/>
+                                <state key="highlighted" image="btn_radio_on.png"/>
+                                <connections>
+                                    <action selector="homeBastionButtonTouch:" destination="PSS-TU-tJM" eventType="touchUpInside" id="F3g-Qc-kGO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vxe-cY-z0a">
+                                <rect key="frame" x="278" y="359" width="33" height="32"/>
+                                <state key="normal" image="btn_radio_off.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="btn_radio_on.png"/>
+                                <state key="highlighted" image="btn_radio_on.png"/>
+                                <connections>
+                                    <action selector="systemCancelBastionButtonTouch:" destination="PSS-TU-tJM" eventType="touchUpInside" id="ZcZ-wr-yIX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bRT-dd-CzD"/>
                     <connections>
-                        <outlet property="homeBastion" destination="VwX-yd-nDy" id="EzI-xS-DX6"/>
+                        <outlet property="homeBastionButton" destination="04Z-ca-tfD" id="dja-K8-NuM"/>
                         <outlet property="hostNameTextField" destination="AAt-CU-bL1" id="SLi-bz-Pms"/>
                         <outlet property="statusButton" destination="zeQ-r4-Mwx" id="jKP-YZ-fZ2"/>
-                        <outlet property="systemBastion" destination="QUL-to-oe5" id="hdc-C6-D7M"/>
-                        <outlet property="systemCancelBastion" destination="uZv-UZ-UTz" id="UUL-bO-MkA"/>
+                        <outlet property="systemBastionButton" destination="tVN-ne-H31" id="XM7-aH-YCJ"/>
+                        <outlet property="systemCancelBastionButton" destination="Vxe-cY-z0a" id="1tV-B1-zf5"/>
                         <segue destination="qTT-Qn-xNF" kind="push" identifier="warningNoteIdentifier" id="nQi-YO-Uym"/>
                     </connections>
                 </viewController>
@@ -1159,6 +1177,8 @@
     </scenes>
     <resources>
         <image name="back.png" width="49" height="48"/>
+        <image name="btn_radio_off.png" width="80" height="80"/>
+        <image name="btn_radio_on.png" width="80" height="80"/>
         <image name="button_i1.png" width="435" height="100"/>
         <image name="chefangMid.png" width="59" height="59"/>
         <image name="homeMidSmall.png" width="32" height="31"/>

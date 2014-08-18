@@ -30,7 +30,7 @@
     [asiRequest setUseCookiePersistence:YES];
     [asiRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     [asiRequest setDelegate:delegate];
-    
+    [asiRequest setTimeOutSeconds:8.0f];
     [asiRequest setDidFinishSelector:finishSel];
     [asiRequest setDidFailSelector:failSel];
     [asiRequest startAsynchronous];
@@ -51,7 +51,7 @@
     [request setUseCookiePersistence:YES];
     [request setDefaultResponseEncoding:NSUTF8StringEncoding];
     [request setDelegate:delegate];
-    [request setTimeOutSeconds:3.0f];
+    [request setTimeOutSeconds:8.0f];
     
     [request setDidFinishSelector:finishSel];
     [request setDidFailSelector:failSel];
