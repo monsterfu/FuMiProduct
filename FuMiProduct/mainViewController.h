@@ -12,6 +12,7 @@
 #import "hostPropertyModel.h"
 #import "warningNoteModel.h"
 #import "loginModel.h"
+#import "settingViewController.h"
 
 @interface mainViewController : UIViewController<CustomSwitchDelegate,PAPasscodeViewControllerDelegate,UITextFieldDelegate,MFMessageComposeViewControllerDelegate>
 {
@@ -22,6 +23,7 @@
     loginModel* _loginModel;
     warningNoteModel* _warningNoteModel;
     MFMessageComposeViewController* _picker;
+    settingViewController* _settingViewController;
 }
 
 

@@ -128,7 +128,9 @@
         int returnCode = [[res valueForKey:BPushRequestErrorCodeKey] intValue];
         NSString *requestid = [res valueForKey:BPushRequestRequestIdKey];
         
-        
+        if (userid == nil) {
+            [USER_DEFAULT removeObjectForKey:BPushRequestUserIdKey];
+        }
         [USER_DEFAULT setObject:userid forKey:BPushRequestUserIdKey];
         [USER_DEFAULT synchronize];
     }

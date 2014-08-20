@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-#define VERSION_NAME  @"1.0.0"
-#define VERSION  2
+#define VERSION_NAME  @"1.1.0"
+#define VERSION  3
 
 @protocol BPushDelegate <NSObject>
 

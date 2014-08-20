@@ -164,8 +164,10 @@
             return _alarmTimeCell;
         }
     }else if(indexPath.row == 4||indexPath.row == 5) {
-        _deleyTimeCell = [tableView dequeueReusableCellWithIdentifier:@"delayTimeCellIdentifier"];
+        _deleyTimeCell = [tableView dequeueReusableCellWithIdentifier:@"delayTimeCellIdentifier" forIndexPath:indexPath];
         _deleyTimeCell.delegate = self;
+        _deleyTimeCell.timeLabel.text = [NSString stringWithFormat:@"%@",_hostPropertyModel.rspdelay];
+        _deleyTimeCell.timerSlier.value = [_hostPropertyModel.rspdelay integerValue];
         return _deleyTimeCell;
     }else if(indexPath.row == 6){
         UITableViewCell* settingCell = [tableView dequeueReusableCellWithIdentifier:@"settingMainCell"];
@@ -322,6 +324,7 @@
 {
     [ProgressHUD show:@"修改出入时延中，请稍候"];
     [HttpRequest proportySetRequest:[NSString userName] host:[NSString hostId] seqno:[NSString randomStr] name:@"" email:@"" question:@"" answer:@"" workstatus:@"" rspdelay:[NSString stringWithFormat:@"%d",value] almvolume:@"" alarmtime:@"" retpwdflag:@"" onekeyphone:@"" address:@"" delegate:self finishSel:@selector(GetResult:) failSel:@selector(GetErr:) tag:TAG_OUTIN_DELAYTIME];
+    _hostPropertyModel.rspdelay = [NSString stringWithFormat:@"%d",value];
 }
 #pragma mark - passwordSwitchCellDelegate
 -(void)openPassword:(BOOL)open
@@ -361,6 +364,7 @@
             }else if (request.tag == TAG_ALARMPHONE_EDIT){
                 [ProgressHUD showSuccess:@"编辑报警电话成功！"];
             }
+            [[NSNotificationCenter defaultCenter]postNotificationName:NSNotificationCenter_UpdateHostInfo object:nil];
         }
     }else{
         if (request.tag == TAG_ALARMTIME){

@@ -7,7 +7,6 @@
 //
 
 #import "mainViewController.h"
-#import "settingViewController.h"
 
 //18676686204   123456
 
@@ -129,7 +128,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:SETTINGACTION]) {
-        settingViewController* _settingViewController = (settingViewController*)[segue destinationViewController];
+        _settingViewController = (settingViewController*)[segue destinationViewController];
         _settingViewController.hostDeviceArray = _hostDeviceArray;
         _settingViewController.rfidDeviceArray = _rfidDeviceArray;
         _settingViewController.alarmDeviceArray = _alarmDeviceArray;
