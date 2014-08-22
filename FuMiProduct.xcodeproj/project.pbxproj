@@ -86,6 +86,7 @@
 		640851E2197CC3EC004409F1 /* NSString+dateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 640851E1197CC3EC004409F1 /* NSString+dateFormater.m */; };
 		64090E701945BED800A61333 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64090E6D1945BED800A61333 /* ProgressHUD.bundle */; };
 		64090E711945BED800A61333 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64090E6F1945BED800A61333 /* ProgressHUD.m */; };
+		640DFCC419A5DFFB00F3A092 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 640DFCC319A5DFFB00F3A092 /* libz.1.2.5.dylib */; };
 		640E7D0C193F18DA0082EFF2 /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640E7D0A193F18DA0082EFF2 /* BPushConfig.plist */; };
 		640E7D0F193F1B010082EFF2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E7D0E193F1B010082EFF2 /* libz.dylib */; };
 		640E7D13193F1B0A0082EFF2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 640E7D12193F1B0A0082EFF2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -122,7 +123,6 @@
 		64157FC4193D7143004972C5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC3193D7143004972C5 /* CFNetwork.framework */; };
 		64157FC6193D7150004972C5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC5193D7150004972C5 /* SystemConfiguration.framework */; };
 		64157FC8193D7157004972C5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC7193D7157004972C5 /* MobileCoreServices.framework */; };
-		64157FCA193D7174004972C5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64157FC9193D7174004972C5 /* libz.1.2.5.dylib */; };
 		641CB7BD19A1E77400BFE5B1 /* btn_radio_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 641CB7BB19A1E77400BFE5B1 /* btn_radio_off.png */; };
 		641CB7BE19A1E77400BFE5B1 /* btn_radio_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 641CB7BC19A1E77400BFE5B1 /* btn_radio_on.png */; };
 		6450588B194009FE007BBA9B /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64505888194009FE007BBA9B /* SKSTableView.m */; };
@@ -281,6 +281,7 @@
 		64090E6D1945BED800A61333 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = MBProgressHUD/ProgressHUD.bundle; sourceTree = "<group>"; };
 		64090E6E1945BED800A61333 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = MBProgressHUD/ProgressHUD.h; sourceTree = "<group>"; };
 		64090E6F1945BED800A61333 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = MBProgressHUD/ProgressHUD.m; sourceTree = "<group>"; };
+		640DFCC319A5DFFB00F3A092 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		640E7D0A193F18DA0082EFF2 /* BPushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BPushConfig.plist; sourceTree = "<group>"; };
 		640E7D0E193F1B010082EFF2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		640E7D11193F1B0A0082EFF2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -352,7 +353,6 @@
 		64157FC3193D7143004972C5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		64157FC5193D7150004972C5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		64157FC7193D7157004972C5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		64157FC9193D7174004972C5 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		641CB7BB19A1E77400BFE5B1 /* btn_radio_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_off.png; sourceTree = "<group>"; };
 		641CB7BC19A1E77400BFE5B1 /* btn_radio_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_on.png; sourceTree = "<group>"; };
 		64505887194009FE007BBA9B /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
@@ -413,12 +413,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640DFCC419A5DFFB00F3A092 /* libz.1.2.5.dylib in Frameworks */,
 				6414659719A47950007EE432 /* libBPush.a in Frameworks */,
 				640E7D22193F21690082EFF2 /* CoreTelephony.framework in Frameworks */,
 				0F8CD6D519A084D600D4F0C1 /* MessageUI.framework in Frameworks */,
 				640E7D0F193F1B010082EFF2 /* libz.dylib in Frameworks */,
 				64BBCD9E193D73B600796A68 /* libxml2.dylib in Frameworks */,
-				64157FCA193D7174004972C5 /* libz.1.2.5.dylib in Frameworks */,
 				0F5A428F193B432600D9B932 /* CoreGraphics.framework in Frameworks */,
 				64157FC8193D7157004972C5 /* MobileCoreServices.framework in Frameworks */,
 				64157FC6193D7150004972C5 /* SystemConfiguration.framework in Frameworks */,
@@ -513,12 +513,12 @@
 		0F5A428B193B432600D9B932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				640DFCC319A5DFFB00F3A092 /* libz.1.2.5.dylib */,
 				6414659619A47950007EE432 /* libBPush.a */,
 				0F8CD6D419A084D600D4F0C1 /* MessageUI.framework */,
 				640E7D21193F21690082EFF2 /* CoreTelephony.framework */,
 				640E7D0E193F1B010082EFF2 /* libz.dylib */,
 				64BBCD9D193D73B600796A68 /* libxml2.dylib */,
-				64157FC9193D7174004972C5 /* libz.1.2.5.dylib */,
 				64157FC7193D7157004972C5 /* MobileCoreServices.framework */,
 				64157FC5193D7150004972C5 /* SystemConfiguration.framework */,
 				64157FC3193D7143004972C5 /* CFNetwork.framework */,
