@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _nameArray = @[@"普通防区",@"在家防区",@"24小时防区"];
+    _nameArray = @[@"普通防区",@"在家防区",@"24小时防区",@"独立防区"];
     
     _tableView.SKSTableViewDelegate = self;
     _tableView.shouldExpandOnlyOneCell = YES;
@@ -53,6 +53,7 @@
     _commonFQArray = [NSMutableArray array];
     _homeFQArray = [NSMutableArray array];
     _allDayFQArray  = [NSMutableArray array];
+    _singonlArray = [NSMutableArray array];
     
     for (wirelessAlarmDeviceModel* model in _alarmDeviceArray) {
         if ([model.status isEqualToString:AlarmDeviceSts_2]) {
@@ -61,8 +62,8 @@
             [_allDayFQArray addObject:model];
         }else if([model.status isEqualToString:AlarmDeviceSts_4]) {
             [_homeFQArray addObject:model];
-        }else if([model.status isEqualToString:AlarmDeviceSts_5]) {
-            [_homeFQArray addObject:model];
+        }else if([model.status isEqualToString:AlarmDeviceSts_5]){
+            [_singonlArray addObject:model];
         }
     }
 }
@@ -114,6 +115,11 @@
             return [_allDayFQArray count];
         }
             break;
+        case 3:
+        {
+            return [_singonlArray count];
+        }
+            break;
         default:
             return 0;
             break;
@@ -128,6 +134,8 @@
         _deviceCell.deviceModel = [_homeFQArray objectAtIndex:indexPath.subRow-1];
     }else if (indexPath.row == 2) {
         _deviceCell.deviceModel = [_allDayFQArray objectAtIndex:indexPath.subRow-1];
+    }else if (indexPath.row == 3) {
+        _deviceCell.deviceModel = [_singonlArray objectAtIndex:indexPath.subRow-1];
     }
     _deviceCell.nameLabel.text = [_deviceTypeDic objectForKey:_deviceCell.deviceModel.type];
     _deviceCell.delegate = self;
@@ -171,6 +179,14 @@
         case 2:
         {
             if ([_allDayFQArray count]) {
+                settingCell.isExpandable = YES;
+            }else
+                settingCell.isExpandable = NO;
+        }
+            break;
+        case 3:
+        {
+            if ([_singonlArray count]) {
                 settingCell.isExpandable = YES;
             }else
                 settingCell.isExpandable = NO;

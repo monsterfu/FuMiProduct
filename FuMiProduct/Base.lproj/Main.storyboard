@@ -136,7 +136,7 @@
                     <navigationItem key="navigationItem" id="48d-Tp-qPK"/>
                     <connections>
                         <outlet property="tableView" destination="L1t-vK-uX2" id="rrS-Rr-rdy"/>
-                        <segue destination="IPr-2L-e9f" kind="push" identifier="selectDeviceAction" id="1ey-MB-Nr0"/>
+                        <segue destination="IPr-2L-e9f" kind="push" identifier="selectDeviceAction" id="K5U-MQ-QAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65L-RP-qoa" userLabel="First Responder" sceneMemberID="firstResponder"/>

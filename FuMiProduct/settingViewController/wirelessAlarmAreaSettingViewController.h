@@ -20,6 +20,7 @@
     NSMutableArray* _commonFQArray;
     NSMutableArray* _homeFQArray;
     NSMutableArray* _allDayFQArray;
+    NSMutableArray* _singonlArray; //独立防区
     
     NSMutableDictionary* _deviceTypeDic;
     commonRespondModel* _commRespondModel;
